@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Блог BIDDER — поради щодо імпорту авто, розмитнення та вибору лоту на аукціоні США та Європи." />
+  <title>Блог — BIDDER</title>
+  <link rel="canonical" href="https://leechan.xyz/blog.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="BIDDER" />
+  <meta property="og:title" content="Блог — BIDDER" />
+  <meta property="og:description" content="Блог BIDDER — поради щодо імпорту авто, розмитнення та вибору лоту на аукціоні США та Європи." />
+  <meta property="og:url" content="https://leechan.xyz/blog.html" />
+  <meta property="og:image" content="https://leechan.xyz/images/logo-carwaw-black.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Блог — BIDDER" />
+  <meta name="twitter:description" content="Блог BIDDER — поради щодо імпорту авто, розмитнення та вибору лоту на аукціоні США та Європи." />
+  <meta name="twitter:image" content="https://leechan.xyz/images/logo-carwaw-black.png" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Блог BIDDER",
+    "url": "https://leechan.xyz/blog.html",
+    "description": "Блог BIDDER — поради щодо імпорту авто, розмитнення та вибору лоту на аукціоні США та Європи.",
+    "inLanguage": "uk"
+  }
+  </script>
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var page = parseInt(params.get('page') || '1', 10);
+      if (!Number.isFinite(page) || page < 1) page = 1;
+
+      var origin = window.location.origin && /^https?:/i.test(window.location.origin)
+        ? window.location.origin
+        : 'https://leechan.xyz';
+      var basePath = '/blog.html';
+      var canonicalUrl = origin + basePath + (page > 1 ? ('?page=' + page) : '');
+
+      var canonical = document.querySelector('link[rel="canonical"]');
+      if (!canonical) {
+        canonical = document.createElement('link');
+        canonical.setAttribute('rel', 'canonical');
+        document.head.appendChild(canonical);
+      }
+      canonical.setAttribute('href', canonicalUrl);
+
+      if (page > 1) {
+        document.title = 'Блог — сторінка ' + page + ' | BIDDER';
+        var desc = document.querySelector('meta[name="description"]');
+        if (desc) {
+          desc.setAttribute('content', 'Блог BIDDER — сторінка ' + page + '. Поради щодо імпорту авто, розмитнення та вибору лоту.');
+        }
+      }
+
+      window.__blogSeoState = {
+        page: page,
+        origin: origin,
+        basePath: basePath
+      };
+    })();
+  </script>
+  <link rel="icon" type="image/png" href="images/logo-carwaw-white.png" media="(prefers-color-scheme: light)" />
+  <link rel="icon" type="image/png" href="images/logo-carwaw-white.png" media="(prefers-color-scheme: dark)" />
+  <link rel="shortcut icon" type="image/png" href="images/logo-carwaw-white.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/common.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components/buttons.css" />
+  <link rel="stylesheet" href="css/components/cards.css" />
+  <link rel="stylesheet" href="css/components/steps.css" />
+  <link rel="stylesheet" href="css/components/faq.css" />
+  <link rel="stylesheet" href="css/components/lang.css" />
+  <link rel="stylesheet" href="css/components/float.css" />
+  <link rel="stylesheet" href="css/components/modal.css" />
+  <link rel="stylesheet" href="css/components/mobile-nav.css" />
+  <link rel="stylesheet" href="css/pages/blog.css" />
+  <link rel="stylesheet" href="css/components/header.css" />
+  <link rel="stylesheet" href="css/components/footer.css" />
+  <style>
+    .blog-pagination {
+      margin-top: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .blog-page-btn {
+      min-width: 40px;
+      height: 40px;
+      padding: 0 12px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--text2);
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all .2s ease;
+    }
+    .blog-page-btn:hover {
+      border-color: var(--orange);
+      color: var(--orange);
+    }
+    .blog-page-btn.active {
+      border-color: var(--orange);
+      background: var(--orange);
+      color: #fff;
+    }
+    .blog-page-btn:disabled {
+      opacity: .45;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ HEADER ═══ -->
+  <header class="hdr">
+    <div class="hdr-in">
+      <a href="index.html" class="logo">
+        <img src="images/logo-carwaw-black.png" alt="BIDDER" style="height:54px;width:auto;object-fit:contain;" />
+      </a>
+      <nav class="nav-main">
+        <a href="index.html">Головна</a>
+        <a href="catalog.html">Каталог авто</a>
+        <a href="catalog-available.html">Авто в дорозі</a>
+        <a href="calculator.html">Калькулятор</a>
+        <a href="blog.html" class="act">Блог</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contacts.html">Контакти</a>
+      </nav>
+      <div class="hdr-socials">
+        <a href="tel:+48784890644" class="hdr-soc-btn" title="Телефон"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.63a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></a>
+        <a href="https://wa.me/48784890644" class="hdr-soc-btn" title="WhatsApp"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.557 4.126 1.528 5.855L.057 23.272a.75.75 0 00.921.921l5.417-1.471A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.705 9.705 0 01-4.949-1.354l-.355-.21-3.676.998 1.007-3.574-.229-.368A9.708 9.708 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg></a>
+        <a href="https://www.facebook.com/" class="hdr-soc-btn" title="Facebook"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073C24 5.406 18.627 0 12 0S0 5.406 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.235 2.686.235v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg></a>
+        <a href="https://www.instagram.com/" class="hdr-soc-btn" title="Instagram"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+        <a href="https://www.tiktok.com/" class="hdr-soc-btn" title="TikTok"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.73a8.16 8.16 0 004.77 1.52V6.78a4.85 4.85 0 01-1-.09z"/></svg></a>
+      </div>
+      <div class="hdr-right">
+        <a href="tel:+48784890644" class="hdr-phone">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.63a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          +48 784 890 644
+        </a>
+        <div class="lang-switch" id="langSwitch" aria-label="Language">
+          <button class="lang-trigger" id="langTrigger" onclick="event.stopPropagation();document.getElementById('langSwitch').classList.toggle('open')" aria-haspopup="true">
+            <span id="langLabel">PL</span>
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3.5l3 3 3-3"/></svg>
+          </button>
+          <div class="lang-menu" id="langMenu">
+            <button class="lang-btn" data-lang="pl" onclick="setLang('pl')">PL</button>
+            <button class="lang-btn" data-lang="uk" onclick="setLang('uk')">UK</button>
+            <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+          </div>
+        </div>
+        <a href="contacts.html" class="btn-ora">Зв'язатися</a>
+        <button class="menu-btn" id="menuBtn" aria-label="Відкрити меню" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu-backdrop" id="mobileMenuBackdrop"></div>
+  <nav class="mobile-nav-panel" id="mobileNavPanel" aria-label="Мобільне меню">
+    <div class="mobile-nav-links">
+      <a href="index.html" class="mobile-nav-link">Головна</a>
+      <a href="catalog.html" class="mobile-nav-link">Каталог авто</a>
+      <a href="catalog-available.html" class="mobile-nav-link">Авто в дорозі</a>
+      <a href="calculator.html" class="mobile-nav-link">Калькулятор</a>
+      <a href="blog.html" class="mobile-nav-link active">Блог</a>
+      <a href="faq.html" class="mobile-nav-link">FAQ</a>
+      <a href="contacts.html" class="mobile-nav-link">Контакти</a>
+    </div>
+    <div class="mobile-nav-contact">
+      <a href="tel:+48784890644" class="mobile-nav-phone">+48 784 890 644</a>
+      <a href="tel:+48571660242" class="mobile-nav-phone">+48 571 660 242</a>
+      <a href="contacts.html" class="btn-ora" style="display:flex;align-items:center;justify-content:center;margin-top:4px;">Зв'язатися</a>
+    </div>
+    <div class="mobile-nav-lang">
+      <span class="mobile-nav-lang-label">Мова</span>
+      <div class="mobile-lang-btns">
+        <button class="lang-btn" data-lang="pl" onclick="setLang('pl')">PL</button>
+        <button class="lang-btn" data-lang="uk" onclick="setLang('uk')">UK</button>
+        <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══ PAGE ═══ -->
+  <div class="page-wrapper">
+
+    <!-- ── HERO ── -->
+    <div class="blog-hero">
+      <img class="hero-img"
+        src="images/96444975_HD_images/96444975_Image_1.jpg"
+        alt="BMW M5 F90 — огляд найпотужнішої версії"
+        onerror="this.style.background='linear-gradient(135deg,#1a1a2e,#16213e)';this.style.display='none'"
+      />
+      <div class="hero-content">
+        <div class="hero-meta reveal">
+          <span class="post-tag tag-review">Огляд</span>
+          <span class="hero-date">14 березня 2026</span>
+          <span class="hero-read">10 хв читання</span>
+        </div>
+        <h1 class="hero-title reveal" style="transition-delay:0.08s">
+          BMW M5 F90: найпотужніша<br/>версія у повному розборі
+        </h1>
+        <p class="hero-excerpt reveal" style="transition-delay:0.16s">
+          Проїхали 2 000 км на конкурсному лоті з IAAI — розбираємо двигун, підвіску,
+          реальні витрати та що перевіряти при купівлі через аукціон.
+        </p>
+        <a href="#" class="hero-cta reveal" style="transition-delay:0.24s">
+          Читати матеріал
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- ── EDITORIAL GRID ── -->
+    <div class="section">
+      <div class="section-header">
+        <div>
+          <div class="section-title reveal">Свіжі матеріали</div>
+          <div class="section-subtitle reveal" style="transition-delay:0.06s">Останні огляди, гіди та ринкові аналізи</div>
+        </div>
+        <a href="#" class="see-all reveal" style="transition-delay:0.1s">
+          Всі публікації
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+
+      <div class="editorial-grid">
+
+        <!-- FEATURED large card -->
+        <div class="post-card img-card feat reveal">
+          <div class="post-card-img">
+            <img src="images/96444975_HD_images/96444975_Image_3.jpg" alt="Як купити авто на аукціоні Copart" loading="lazy"
+              onerror="this.parentElement.style.background='linear-gradient(135deg,#1e3a5f,#0f2440)'" />
+          </div>
+          <div class="post-card-body">
+            <div class="post-meta">
+              <span class="post-tag tag-guide">Гід</span>
+              <span class="post-date">10 берез. 2026</span>
+              <span class="post-read">12 хв</span>
+            </div>
+            <div class="post-title">Повний гід: як купити автомобіль на Copart та IAAI із США — від реєстрації до доставки</div>
+            <div class="post-excerpt">Покроковий процес — акаунт, верифікація, ставки, брокер, митниця. Все що потрібно знати новачку перед першою покупкою.</div>
+            <div class="post-footer">
+              <div class="post-author">
+                <div class="author-avatar">АК</div>
+                <span class="author-name">Антон Коваль</span>
+              </div>
+              <div class="post-arrow">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TALL card (col 3, row 1+2) -->
+        <div class="post-card img-card tall reveal" style="transition-delay:0.08s">
+          <div class="post-card-img">
+            <img src="images/96444975_HD_images/96444975_Image_4.jpg" alt="Lexus RX 350 зі збитку" loading="lazy"
+              onerror="this.parentElement.style.background='linear-gradient(135deg,#1a2a1a,#0d1a0d)'" />
+          </div>
+          <div class="post-card-body">
+            <div class="post-meta">
+              <span class="post-tag tag-review">Огляд</span>
+              <span class="post-date">7 берез. 2026</span>
+            </div>
+            <div class="post-title">Lexus RX 350 після збитку — варто ремонтувати чи перепродати?</div>
+            <div class="post-excerpt">Взяли лот з IAAI за $4 200, отримали дефект передньої частини. Рахуємо реальні витрати на відновлення та аналізуємо маржу.</div>
+            <div class="post-footer">
+              <div class="post-author">
+                <div class="author-avatar">МС</div>
+                <span class="author-name">Марта Симоненко</span>
+              </div>
+              <div class="post-arrow">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- VIDEO card -->
+        <div class="post-card img-card md reveal" style="transition-delay:0.12s">
+          <div class="post-card-img">
+            <img src="images/79270765_HD_images/79270765_Image_2.jpg" alt="Огляд Audi A7" loading="lazy"
+              onerror="this.parentElement.style.background='linear-gradient(135deg,#2a1a1a,#1a0d0d)'" />
+            <div class="play-overlay">
+              <div class="play-btn">
+                <svg width="16" height="18" viewBox="0 0 16 18" fill="none"><path d="M2 2l12 7-12 7V2z" fill="#000"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="post-card-body">
+            <div class="post-meta">
+              <span class="post-tag tag-video">Відео</span>
+              <span class="post-date">5 берез. 2026</span>
+              <span class="post-read">18:34</span>
+            </div>
+            <div class="post-title">Audi A7 3.0T: огляд після 150 000 км — що зносилось і чи купляти?</div>
+            <div class="post-footer">
+              <div class="post-author">
+                <div class="author-avatar">ДП</div>
+                <span class="author-name">Денис Петров</span>
+              </div>
+              <div class="post-arrow">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SMALL card -->
+        <div class="post-card img-card sm reveal" style="transition-delay:0.18s">
+          <div class="post-card-img">
+            <img src="images/96444975_HD_images/96444975_Image_6.jpg" alt="Tesla Model 3" loading="lazy"
+              onerror="this.parentElement.style.background='linear-gradient(135deg,#0d1a2a,#08101a)'" />
+          </div>
+          <div class="post-card-body">
+            <div class="post-meta">
+              <span class="post-tag tag-news">Новини</span>
+              <span class="post-date">3 берез. 2026</span>
+            </div>
+            <div class="post-title">Tesla Model 3 Highland на аукціоні: нові лоти та ціни</div>
+            <div class="post-footer">
+              <div class="post-author">
+                <div class="author-avatar">ОВ</div>
+                <span class="author-name">Олена Василенко</span>
+              </div>
+              <div class="post-arrow">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ACCENT card (yellow) -->
+        <div class="post-card accent-card sm reveal" style="transition-delay:0.22s">
+          <div class="post-card-body" style="padding: 24px;">
+            <div class="post-meta">
+              <span class="post-tag">Ринок</span>
+              <span class="post-date" style="color:rgba(0,0,0,0.45)">1 берез. 2026</span>
+            </div>
+            <div class="post-title" style="font-size:17px; line-height:1.3; margin-top:8px">
+              Ринок збиткових авто у 2026: що змінилось після нових митних правил
+            </div>
+            <div class="post-footer" style="margin-top:auto; padding-top:14px; border-top:1px solid rgba(0,0,0,0.12)">
+              <div class="post-author">
+                <div class="author-avatar" style="background:rgba(0,0,0,0.12); color:rgba(0,0,0,0.6)">АК</div>
+                <span class="author-name" style="color:rgba(0,0,0,0.65)">Аналітика</span>
+              </div>
+              <div class="post-arrow" style="border-color:rgba(0,0,0,0.2); color:rgba(0,0,0,0.5)">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- WIDE horizontal card -->
+        <div class="post-card img-card horiz wide reveal" style="transition-delay:0.1s">
+          <div class="post-card-img" style="width:280px; height:auto; flex-shrink:0">
+            <img src="images/96444975_HD_images/96444975_Image_5.jpg" alt="Mitsubishi Outlander PHEV" loading="lazy" style="height:100%; object-fit:cover"
+              onerror="this.parentElement.style.background='linear-gradient(135deg,#1a1a2e,#0d0d1a)'" />
+          </div>
+          <div class="post-card-body" style="justify-content:center">
+            <div class="post-meta">
+              <span class="post-tag tag-market">Аналітика</span>
+              <span class="post-date">27 лют. 2026</span>
+              <span class="post-read">8 хв</span>
+            </div>
+            <div class="post-title" style="font-size:20px; max-width:580px">Mitsubishi Outlander PHEV: реальний розрахунок вигоди при імпорті з японського аукціону</div>
+            <div class="post-excerpt" style="max-width:540px">Порівнюємо вартість покупки на USS Tokyo проти українського ринку. Митниця, доставка, конвертація — повна математика угоди.</div>
+            <div class="post-footer" style="max-width:540px">
+              <div class="post-author">
+                <div class="author-avatar">РМ</div>
+                <span class="author-name">Роман Мельник</span>
+              </div>
+              <div class="post-arrow">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /editorial-grid -->
+    </div>
+
+    <!-- ── TWO-COL: articles + sidebar ── -->
+    <div class="section">
+      <div class="section-header">
+        <div>
+          <div class="section-title reveal">Поглиблені матеріали</div>
+          <div class="section-subtitle reveal" style="transition-delay:0.06s">Детальні розбори та практичні гіди</div>
+        </div>
+        <a href="#" class="see-all reveal" style="transition-delay:0.1s">
+          Всі матеріали
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+
+      <div class="two-col-grid">
+        <!-- Main articles -->
+        <div class="main-col">
+
+          <!-- Article card 1 -->
+          <div class="post-card img-card horiz reveal">
+            <div class="post-card-img" style="width:220px; height:auto; flex-shrink:0">
+              <img src="images/79270765_HD_images/79270765_Image_1.jpg" alt="Dodge Charger" loading="lazy" style="height:100%; min-height:160px; object-fit:cover"
+                onerror="this.parentElement.style.background='linear-gradient(135deg,#2a1a0d,#1a0d08)'" />
+            </div>
+            <div class="post-card-body">
+              <div class="post-meta">
+                <span class="post-tag tag-guide">Гід</span>
+                <span class="post-date">25 лют. 2026</span>
+                <span class="post-read">15 хв</span>
+              </div>
+              <div class="post-title">Dodge Charger SRT: що перевіряти перед ставкою на аукціоні</div>
+              <div class="post-excerpt">V8 Hemi або SRT-8, підвіска Brembo, задня вісь — типові проблеми та червоні прапори у звіті</div>
+              <div class="post-footer">
+                <div class="post-author">
+                  <div class="author-avatar">ДП</div>
+                  <span class="author-name">Денис Петров</span>
+                </div>
+                <div class="post-arrow">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Article card 2 – VIDEO -->
+          <div class="post-card img-card horiz reveal" style="transition-delay:0.08s">
+            <div class="post-card-img" style="width:220px; height:auto; flex-shrink:0; position:relative">
+              <img src="images/96444975_HD_images/96444975_Image_2.jpg" alt="BMW 7 Series" loading="lazy" style="height:100%; min-height:160px; object-fit:cover"
+                onerror="this.parentElement.style.background='linear-gradient(135deg,#1a1a2e,#0d0d1a)'" />
+              <div class="play-overlay" style="background:rgba(0,0,0,0.25)">
+                <div class="play-btn" style="width:44px; height:44px">
+                  <svg width="13" height="15" viewBox="0 0 16 18" fill="none"><path d="M2 2l12 7-12 7V2z" fill="#000"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="post-card-body">
+              <div class="post-meta">
+                <span class="post-tag tag-video">Відео</span>
+                <span class="post-date">22 лют. 2026</span>
+                <span class="post-read">24:10</span>
+              </div>
+              <div class="post-title">BMW 750i після серйозного ДТП: що реально можна відновити і навіщо</div>
+              <div class="post-excerpt">Детальний відеоогляд лоту з Tulsa (OK) — структурні пошкодження, підрамник, стан ходової</div>
+              <div class="post-footer">
+                <div class="post-author">
+                  <div class="author-avatar">МС</div>
+                  <span class="author-name">Марта Симоненко</span>
+                </div>
+                <div class="post-arrow">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Article card 3 -->
+          <div class="post-card img-card horiz reveal" style="transition-delay:0.14s">
+            <div class="post-card-img" style="width:220px; height:auto; flex-shrink:0">
+              <img src="images/96444975_HD_images/96444975_Image_2.jpg" alt="Ford Mustang" loading="lazy" style="height:100%; min-height:160px; object-fit:cover"
+                onerror="this.parentElement.style.background='linear-gradient(135deg,#2a0d0d,#1a0808)'" />
+            </div>
+            <div class="post-card-body">
+              <div class="post-meta">
+                <span class="post-tag tag-market">Аналітика</span>
+                <span class="post-date">18 лют. 2026</span>
+                <span class="post-read">7 хв</span>
+              </div>
+              <div class="post-title">Топ-10 марок для перепродажу з аукціону в Україні у 2026</div>
+              <div class="post-excerpt">Аналізуємо маржинальність, попит та типові витрати на ремонт для найбільш ліквідних лотів</div>
+              <div class="post-footer">
+                <div class="post-author">
+                  <div class="author-avatar">АК</div>
+                  <span class="author-name">Антон Коваль</span>
+                </div>
+                <div class="post-arrow">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Article card 4 -->
+          <div class="post-card img-card horiz reveal" style="transition-delay:0.2s">
+            <div class="post-card-img" style="width:220px; height:auto; flex-shrink:0">
+              <img src="images/79270765_HD_images/79270765_Image_5.jpg" alt="Kia Stinger" loading="lazy" style="height:100%; min-height:160px; object-fit:cover"
+                onerror="this.parentElement.style.background='linear-gradient(135deg,#1a2a1a,#0d1a0d)'" />
+            </div>
+            <div class="post-card-body">
+              <div class="post-meta">
+                <span class="post-tag tag-review">Огляд</span>
+                <span class="post-date">14 лют. 2026</span>
+                <span class="post-read">9 хв</span>
+              </div>
+              <div class="post-title">Kia Stinger GT: чи варто брати після мінора в 2026?</div>
+              <div class="post-excerpt">Переглянули 48 лотів на Copart — середня ціна, ступені пошкодження, реальна вартість відновлення</div>
+              <div class="post-footer">
+                <div class="post-author">
+                  <div class="author-avatar">ОВ</div>
+                  <span class="author-name">Олена Василенко</span>
+                </div>
+                <div class="post-arrow">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /main-col -->
+
+        <!-- Sidebar -->
+        <div class="side-col">
+
+          <!-- Trending -->
+          <div class="side-widget reveal">
+            <div class="widget-title">Популярне</div>
+            <div class="trending-list">
+              <div class="trending-item">
+                <div class="trending-num">01</div>
+                <div>
+                  <div class="trending-title">Як правильно читати Carfax та AutoCheck</div>
+                  <div class="trending-meta">12 хв · 4.2k перегляди</div>
+                </div>
+              </div>
+              <div class="trending-item">
+                <div class="trending-num">02</div>
+                <div>
+                  <div class="trending-title">Топ помилок при першій купівлі на аукціоні</div>
+                  <div class="trending-meta">8 хв · 3.1k перегляди</div>
+                </div>
+              </div>
+              <div class="trending-item">
+                <div class="trending-num">03</div>
+                <div>
+                  <div class="trending-title">Tesla з пошкодженою батареєю — брати чи ні?</div>
+                  <div class="trending-meta">11 хв · 2.8k перегляди</div>
+                </div>
+              </div>
+              <div class="trending-item">
+                <div class="trending-num">04</div>
+                <div>
+                  <div class="trending-title">Митний калькулятор 2026 — нові ставки</div>
+                  <div class="trending-meta">5 хв · 2.4k перегляди</div>
+                </div>
+              </div>
+              <div class="trending-item">
+                <div class="trending-num">05</div>
+                <div>
+                  <div class="trending-title">Як обрати надійного брокера США</div>
+                  <div class="trending-meta">7 хв · 1.9k перегляди</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tags -->
+          <div class="side-widget reveal" style="transition-delay:0.1s">
+            <div class="widget-title">Теми</div>
+            <div class="tag-cloud">
+              <span class="tag-pill">Copart</span>
+              <span class="tag-pill">IAAI</span>
+              <span class="tag-pill">BMW</span>
+              <span class="tag-pill">Tesla</span>
+              <span class="tag-pill">Mitsubishi</span>
+              <span class="tag-pill">Огляди</span>
+              <span class="tag-pill">Гіди</span>
+              <span class="tag-pill">Митниця</span>
+              <span class="tag-pill">Ринок</span>
+              <span class="tag-pill">Lexus</span>
+              <span class="tag-pill">Audi</span>
+              <span class="tag-pill">Відео</span>
+            </div>
+          </div>
+
+          <!-- Newsletter -->
+          <div class="side-widget reveal" style="transition-delay:0.18s">
+            <div class="widget-title">Розсилка</div>
+            <p class="newsletter-desc">Нові матеріали, гарячі лоти та аналітика — раз на тиждень. Без спаму.</p>
+            <div class="newsletter-form">
+              <input class="nl-input" type="email" placeholder="ваш@email.ua" />
+              <button class="nl-btn">Підписатись</button>
+            </div>
+          </div>
+
+        </div><!-- /side-col -->
+      </div><!-- /two-col-grid -->
+    </div>
+
+    <!-- ── MORE PUBLICATIONS ── -->
+    <div class="section">
+      <div class="section-header">
+        <div>
+          <div class="section-title reveal">Більше публікацій</div>
+          <div class="section-subtitle reveal" style="transition-delay:0.06s">Архів матеріалів</div>
+        </div>
+        <a href="#" class="see-all reveal" style="transition-delay:0.1s">
+          Весь архів
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7M6 2.5l3.5 3.5L6 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+
+      <div class="archive-grid">
+        <div class="archive-card reveal">
+          <div class="archive-img">
+            <img src="images/79270765_HD_images/79270765_Image_3.jpg" alt="" loading="lazy"
+              onerror="this.parentElement.style.background='linear-gradient(135deg,#1a1a2e,#0d0d1a)'" />
+          </div>
+          <div class="archive-body">
+            <div class="archive-tag"><span class="post-tag tag-guide" style="font-size:9px; padding:3px 8px">Гід</span></div>
+            <div class="archive-title">VIN-перевірка: які сервіси справді варті грошей</div>
+            <div class="archive-meta">8 лют. 2026 · 6 хв</div>
+          </div>
+        </div>
+        <div class="archive-card reveal" style="transition-delay:0.06s">
+          <div class="archive-img">
+            <img src="images/96444975_HD_images/96444975_Image_5.jpg" alt="" loading="lazy"
+              onerror="this.parentElement.style.background='linear-gradient(135deg,#2a1a0d,#1a0d00)'" />
+          </div>
+          <div class="archive-body">
+            <div class="archive-tag"><span class="post-tag tag-market" style="font-size:9px; padding:3px 8px">Аналітика</span></div>
+            <div class="archive-title">Ford F-150: попит і ціни на американських аукціонах у Q1 2026</div>
+            <div class="archive-meta">5 лют. 2026 · 5 хв</div>
+          </div>
+        </div>
+        <div class="archive-card reveal" style="transition-delay:0.12s">
+          <div class="archive-img">
+            <img src="images/96444975_HD_images/96444975_Image_7.jpg" alt="" loading="lazy"
+              onerror="this.parentElement.style.background='linear-gradient(135deg,#0d2a1a,#081a0d)'" />
+          </div>
+          <div class="archive-body">
+            <div class="archive-tag"><span class="post-tag tag-review" style="font-size:9px; padding:3px 8px">Огляд</span></div>
+            <div class="archive-title">Jeep Grand Cherokee після повені: стоп-листи та реальний ресурс</div>
+            <div class="archive-meta">1 лют. 2026 · 10 хв</div>
+          </div>
+        </div>
+        <div class="archive-card reveal" style="transition-delay:0.18s">
+          <div class="archive-img">
+            <img src="images/79270765_HD_images/79270765_Image_8.jpg" alt="" loading="lazy"
+              onerror="this.parentElement.style.background='linear-gradient(135deg,#1a0d2a,#0d0818)'" />
+          </div>
+          <div class="archive-body">
+            <div class="archive-tag"><span class="post-tag tag-video" style="font-size:9px; padding:3px 8px">Відео</span></div>
+            <div class="archive-title">Розпакування: Porsche Macan S з Copart прибув до Одеси</div>
+            <div class="archive-meta">28 січ. 2026 · 11:22</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Load more -->
+      <div class="load-more reveal">
+        <button class="btn-load-more">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M8 13l-3-3M8 13l3-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Завантажити більше публікацій
+        </button>
+      </div>
+
+      <nav class="blog-pagination reveal" id="blogPagination" aria-label="Пагінація блогу"></nav>
+
+    </div><!-- /section -->
+
+  </div><!-- /page-wrapper -->
+
+<!-- ══════════════════ FOOTER ══════════════════ -->
+<footer class="footer">
+  <div class="footer-in">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">
+          <img src="images/logo-carwaw-white.png" alt="BIDDER" style="height:68px;width:auto;object-fit:contain;" />
+        </div>
+        <p class="footer-tag">Ваш надійний партнер в імпорті авто з аукціонів США, Китаю та Європи з 2013 року.</p>
+        <div class="footer-soc">
+          <a class="fsoc" href="#"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M21.198 2.433a2.242 2.242 0 00-1.022.215l-16.5 6.925a2.25 2.25 0 00.153 4.218l3.982 1.23 2.005 6.019a1 1 0 001.782.258l2.695-3.417 4.203 3.102a2.25 2.25 0 003.516-1.418l2.25-14.625a2.25 2.25 0 00-4.064-1.507z"/></svg></a>
+          <a class="fsoc" href="#"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg></a>
+          <a class="fsoc" href="#"><svg viewBox="0 0 24 24" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a class="fsoc" href="#"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        </div>
+      </div>
+
+      <div class="fcol">
+        <h4>Навігація</h4>
+        <ul>
+          <li><a href="index.html">Головна</a></li>
+          <li><a href="catalog.html">Каталог авто</a></li>
+          <li><a href="catalog-available.html">Авто в дорозі</a></li>
+          <li><a href="blog.html">Блог</a></li>
+        </ul>
+      </div>
+
+      <div class="fcol">
+        <h4>Напрямки</h4>
+        <ul>
+          <li><a href="catalog.html">Авто з США</a></li>
+          <li><a href="catalog.html">Авто з Китаю</a></li>
+          <li><a href="catalog.html">Авто з Європи</a></li>
+          <li><a href="catalog.html">Мото та RORO</a></li>
+        </ul>
+      </div>
+
+      <div class="fcol">
+        <h4>Контакт</h4>
+        <p class="fline">Jawczyce, ul. Poznańska, 56, 05-850, Polska</p>
+        <p class="fline"><a href="tel:+48784890644">+48 784 890 644</a></p>
+        <p class="fline"><a href="tel:+48571660242">+48 571 660 242</a></p>
+        <p class="fline"><a href="mailto:info@bidders.pl">info@bidders.pl</a></p>
+        <p class="fline"><a href="mailto:sales@bidders.pl">sales@bidders.pl</a></p>
+      </div>
+    </div>
+
+    <div class="footer-bot">
+      <span>© 2026 BIDDER. Всі права захищено.</span>
+      <div>
+        <a href="privacy.html">Політика конфіденційності</a>
+        <a href="terms.html">Умови використання</a>
+      </div>
+    </div>
+
+    <div class="footer-brands">
+      <img src="images/copart-logo.png" alt="Copart" />
+      <img src="images/copart-logo.png" alt="Copart" />
+      <img src="images/copart-logo.png" alt="Copart" />
+      <img src="images/copart-logo.png" alt="Copart" />
+      <img src="images/copart-logo.png" alt="Copart" />
+      <img src="images/copart-logo.png" alt="Copart" />
+    </div>
+  </div>
+</footer>
+
+  <script>
+    /* ── Header scroll ── */
+    const header = document.querySelector('.hdr');
+    if (header) window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 16);
+    }, { passive: true });
+
+
+    /* ── Scroll reveal ── */
+    const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => observer.observe(el));
+
+    /* ── Blog pagination (UI + ?page) ── */
+    (function () {
+      var seo = window.__blogSeoState || {};
+      var page = Number.isFinite(seo.page) ? seo.page : 1;
+      if (!Number.isFinite(page) || page < 1) page = 1;
+
+      var allItems = [];
+      var editorial = document.querySelectorAll('.editorial-grid > .post-card');
+      var main = document.querySelectorAll('.main-col > .post-card');
+      var archive = document.querySelectorAll('.archive-grid > .archive-card');
+      editorial.forEach(function (el) { allItems.push(el); });
+      main.forEach(function (el) { allItems.push(el); });
+      archive.forEach(function (el) { allItems.push(el); });
+
+      if (!allItems.length || !seo.basePath || !seo.origin) return;
+
+      var pageSize = 5;
+      var totalPages = Math.max(1, Math.ceil(allItems.length / pageSize));
+      if (page > totalPages) page = totalPages;
+
+      var start = (page - 1) * pageSize;
+      var end = start + pageSize;
+      allItems.forEach(function (el, idx) {
+        el.style.display = (idx >= start && idx < end) ? '' : 'none';
+      });
+
+      var loadMoreWrap = document.querySelector('.load-more');
+      if (loadMoreWrap) loadMoreWrap.style.display = totalPages > 1 ? 'none' : '';
+
+      var pager = document.getElementById('blogPagination');
+      if (!pager) return;
+
+      if (totalPages <= 1) {
+        pager.style.display = 'none';
+      } else {
+        pager.style.display = 'flex';
+
+        var prevBtn = document.createElement('button');
+        prevBtn.className = 'blog-page-btn';
+        prevBtn.type = 'button';
+        prevBtn.textContent = 'Назад';
+        prevBtn.disabled = page === 1;
+        prevBtn.addEventListener('click', function () {
+          if (page > 1) {
+            var target = page - 1;
+            window.location.href = seo.basePath + (target === 1 ? '' : ('?page=' + target));
+          }
+        });
+        pager.appendChild(prevBtn);
+
+        for (var i = 1; i <= totalPages; i += 1) {
+          var btn = document.createElement('button');
+          btn.className = 'blog-page-btn' + (i === page ? ' active' : '');
+          btn.type = 'button';
+          btn.textContent = String(i);
+          (function (targetPage, buttonRef) {
+            buttonRef.addEventListener('click', function () {
+              window.location.href = seo.basePath + (targetPage === 1 ? '' : ('?page=' + targetPage));
+            });
+          })(i, btn);
+          pager.appendChild(btn);
+        }
+
+        var nextBtn = document.createElement('button');
+        nextBtn.className = 'blog-page-btn';
+        nextBtn.type = 'button';
+        nextBtn.textContent = 'Далі';
+        nextBtn.disabled = page === totalPages;
+        nextBtn.addEventListener('click', function () {
+          if (page < totalPages) {
+            window.location.href = seo.basePath + '?page=' + (page + 1);
+          }
+        });
+        pager.appendChild(nextBtn);
+      }
+
+      /* Keep rel prev/next bounded by actual pages */
+      document.querySelectorAll('link[rel="prev"], link[rel="next"]').forEach(function (el) {
+        el.remove();
+      });
+
+      var canonical = document.querySelector('link[rel="canonical"]');
+      if (canonical) {
+        canonical.setAttribute('href', seo.origin + seo.basePath + (page > 1 ? ('?page=' + page) : ''));
+      }
+
+      if (page > 1) {
+        var prev = document.createElement('link');
+        prev.setAttribute('rel', 'prev');
+        prev.setAttribute('href', seo.origin + seo.basePath + (page === 2 ? '' : ('?page=' + (page - 1))));
+        document.head.appendChild(prev);
+      }
+      if (page < totalPages) {
+        var next = document.createElement('link');
+        next.setAttribute('rel', 'next');
+        next.setAttribute('href', seo.origin + seo.basePath + '?page=' + (page + 1));
+        document.head.appendChild(next);
+      }
+    })();
+  </script>
+  <script defer src="js/components/auth-modal.js"></script>
+  <script defer src="js/components/site-chrome.js"></script>
+  <script defer src="js/modules/i18n.js"></script>
+  <script defer src="js/pages/blog.js"></script>
+  <script defer src="js/components/mobile-nav.js"></script>
+  <script defer src="js/core/utils.js"></script>
+  <script defer src="js/core/initApp.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+/* LANG */
+/* ─── LANG DROPDOWN ─────────────────────────────────────────────── */
+.lang-switch { position: relative; display: inline-block; }
+
+.lang-trigger {
+  display: flex; align-items: center; gap: 5px;
+  padding: 6px 10px; border-radius: 8px;
+  font-size: 12px; font-weight: 700; letter-spacing: .05em;
+  color: var(--text); background: var(--light); border: 1.5px solid var(--border);
+  cursor: pointer; font-family: inherit; transition: border-color .18s, color .18s;
+}
+.lang-trigger:hover { border-color: var(--orange); color: var(--orange); }
+.lang-trigger svg { transition: transform .2s; flex-shrink: 0; }
+.lang-switch.open .lang-trigger { border-color: var(--orange); color: var(--orange); }
+.lang-switch.open .lang-trigger svg { transform: rotate(180deg); }
+
+/* Dropdown panel */
+.lang-menu {
+  display: none;
+  position: absolute; top: calc(100% + 6px); right: 0;
+  background: #fff; border: 1px solid var(--border); border-radius: 10px;
+  padding: 4px; box-shadow: 0 4px 20px rgba(0,0,0,.12);
+  flex-direction: column; gap: 2px; min-width: 64px; z-index: 300;
+}
+.lang-switch.open .lang-menu { display: flex; }
+
+.lang-btn {
+  padding: 7px 14px; border-radius: 7px;
+  font-size: 12px; font-weight: 700; letter-spacing: .05em;
+  color: var(--text2); background: none; border: none;
+  cursor: pointer; font-family: inherit; text-align: left; width: 100%;
+  transition: background .15s, color .15s;
+}
+.lang-btn.active { background: rgba(255,92,0,.08); color: var(--orange); }
+.lang-btn:hover:not(.active) { background: var(--light); color: var(--text); }
+
+/* ─── MOBILE NAV LANG ────────────────────────────────────────────── */
+.mobile-nav-lang {
+  margin-top: 12px; padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+.mobile-nav-lang-label {
+  display: block; font-size: 11px; font-weight: 600;
+  color: var(--text3); text-transform: uppercase; letter-spacing: .08em;
+  margin-bottom: 8px;
+}
+.mobile-lang-btns { display: flex; gap: 8px; }
+.mobile-lang-btns .lang-btn {
+  border: 1.5px solid var(--border); background: #fff;
+  border-radius: 8px; padding: 7px 16px; flex: 1; text-align: center;
+}
+.mobile-lang-btns .lang-btn.active {
+  background: var(--orange); color: #fff; border-color: var(--orange);
+}
+
+/* desktop: hide on mobile */
+@media (max-width: 860px) { .lang-switch { display: none; } }

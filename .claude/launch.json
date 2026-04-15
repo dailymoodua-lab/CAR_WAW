@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "carauction-preview",
+      "runtimeExecutable": "/opt/homebrew/bin/python3",
+      "runtimeArgs": ["/Users/sergeybelskiy/Desktop/CarAuction/local_server.py", "--dir", "/Users/sergeybelskiy/Desktop/CarAuction"],
+      "port": 3456
+    }
+  ]
+}

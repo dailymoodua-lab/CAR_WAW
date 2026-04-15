@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /404.html
+Disallow: /index-old.html
+Disallow: /archive/
+
+Sitemap: https://leechan.xyz/sitemap-index.xml

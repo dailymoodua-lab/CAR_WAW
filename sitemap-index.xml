@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>https://leechan.xyz/sitemap.xml</loc>
+  </sitemap>
+  <sitemap>
+    <loc>https://leechan.xyz/data/staging/car-auctions-sitemap-fragment.xml</loc>
+  </sitemap>
+</sitemapindex>

@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="BIDDER — імпорт автомобілів з США, Китаю та Європи. Найкращі ціни, прозорість угод, доставка під ключ." />
+  <title>BIDDER — Імпорт авто з США, Китаю та Європи</title>
+  <link rel="icon" type="image/png" href="images/logo-carwaw-white.png" media="(prefers-color-scheme: light)" />
+  <link rel="icon" type="image/png" href="images/logo-carwaw-white.png" media="(prefers-color-scheme: dark)" />
+  <link rel="shortcut icon" type="image/png" href="images/logo-carwaw-white.png" />
+  <!-- SEO i18n: when /pl/ /uk/ /en/ pages are ready, add hreflang here:
+    <link rel="alternate" hreflang="pl" href="https://leechan.xyz/pl/" />
+    <link rel="alternate" hreflang="uk" href="https://leechan.xyz/uk/" />
+    <link rel="alternate" hreflang="en" href="https://leechan.xyz/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://leechan.xyz/" />
+  -->
+  <link rel="canonical" href="https://leechan.xyz/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="BIDDER" />
+  <meta property="og:title" content="BIDDER — Імпорт авто з США, Китаю та Європи" />
+  <meta property="og:description" content="BIDDER — імпорт автомобілів з США, Китаю та Європи. Найкращі ціни, прозорість угод, доставка під ключ." />
+  <meta property="og:url" content="https://leechan.xyz/" />
+  <meta property="og:image" content="https://leechan.xyz/images/logo-carwaw-black.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="BIDDER — Імпорт авто з США, Китаю та Європи" />
+  <meta name="twitter:description" content="BIDDER — імпорт автомобілів з США, Китаю та Європи. Найкращі ціни, прозорість угод, доставка під ключ." />
+  <meta name="twitter:image" content="https://leechan.xyz/images/logo-carwaw-black.png" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "BIDDER",
+    "url": "https://leechan.xyz/",
+    "logo": "https://leechan.xyz/images/logo-carwaw-black.png",
+    "email": "info@bidders.pl",
+    "telephone": "+48 784 890 644"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "BIDDER",
+    "url": "https://leechan.xyz/",
+    "inLanguage": "uk"
+  }
+  </script>
+  <link rel="stylesheet" href="css/common.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components/buttons.css" />
+  <link rel="stylesheet" href="css/components/cards.css" />
+  <link rel="stylesheet" href="css/components/steps.css" />
+  <link rel="stylesheet" href="css/components/faq.css" />
+  <link rel="stylesheet" href="css/components/lang.css" />
+  <link rel="stylesheet" href="css/components/float.css" />
+  <link rel="stylesheet" href="css/components/modal.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/pages/index.css" />
+  <link rel="stylesheet" href="css/components/header.css" />
+  <link rel="stylesheet" href="css/components/footer.css" />
+  <style>
+    /* ─── FLOAT SPEED-DIAL ─── */
+    .float-ctas { position: fixed; bottom: 28px; right: 24px; display: flex; flex-direction: column; align-items: flex-end; gap: 10px; z-index: 500; }
+    .float-item { opacity: 0 !important; transform: translateY(10px) scale(0.8) !important; pointer-events: none !important; transition: opacity 0.2s ease, transform 0.2s ease; }
+    .float-item:nth-child(2) { transition-delay: 0.04s; }
+    .float-item:nth-child(1) { transition-delay: 0.08s; }
+    .float-ctas.open .float-item { opacity: 1 !important; transform: none !important; pointer-events: auto !important; }
+    @media (hover: hover) { .float-ctas:hover .float-item { opacity: 1 !important; transform: none !important; pointer-events: auto !important; } }
+    .float-btn { width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; box-shadow: 0 4px 16px rgba(0,0,0,.22); transition: transform .2s, box-shadow .2s; flex-shrink: 0; }
+    .float-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.28); }
+    .float-btn.tg { background: #2AABEE; }
+    .float-btn.wa { background: #25D366; }
+    .float-toggle { width: 52px; height: 52px; border-radius: 50%; background: rgba(27,42,74,0.65); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); color: #fff; display: grid; place-items: center; box-shadow: 0 4px 18px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.15); cursor: pointer; transition: transform .2s, background .2s, width .22s ease, height .22s ease; flex-shrink: 0; }
+    .float-toggle:hover { background: #243660; transform: translateY(-2px); }
+    .float-toggle .icon-chat  { display: grid; place-items: center; }
+    .float-toggle .icon-close { display: none; place-items: center; }
+    .float-ctas.open .float-toggle .icon-chat  { display: none; }
+    .float-ctas.open .float-toggle .icon-close { display: grid; }
+    @media (max-width: 860px) {
+      .float-ctas { bottom: 20px; right: 16px; }
+      .float-toggle { width: 28px; height: 28px; box-shadow: 0 2px 10px rgba(0,0,0,.22); }
+      .float-toggle svg { width: 14px; height: 14px; }
+      .float-ctas.open .float-toggle { width: 52px; height: 52px; }
+      .float-ctas.open .float-toggle svg { width: 22px; height: 22px; }
+    }
+    /* ─── STEPS: last step centered on mobile ─── */
+    @media (max-width: 620px) {
+      .step:last-child { grid-column: 1 / -1 !important; }
+    }
+    /* ─── MOBILE HEADER SOCIALS ─── */
+    .hdr-socials { display: none; align-items: center; gap: 6px; margin: 0 auto; }
+    .hdr-soc-btn { width: 29px; height: 29px; border-radius: 50%; background: #fff; border: 1px solid #eff0f4; display: grid; place-items: center; color: var(--text2); flex-shrink: 0; transition: background .18s, color .18s, border-color .18s; }
+    .hdr-soc-btn svg { width: 14px; height: 14px; }
+    .hdr-soc-btn:hover { background: var(--orange); color: #fff; border-color: var(--orange); }
+    @media (max-width: 860px) {
+      .hdr-in { gap: 0 !important; padding: 0 12px !important; }
+      .hdr-socials { display: flex !important; flex: 1; justify-content: center; margin: 0 !important; gap: 6px; }
+      .hdr-right { margin-left: 0 !important; }
+    }
+    /* ─── BURGER + MOBILE NAV ─── */
+    .menu-btn { display: none; width: 42px; height: 42px; padding: 0; align-items: center; justify-content: center; flex-direction: column; gap: 5px; background: #fff; border: 1px solid var(--border); border-radius: 12px; color: var(--text); flex-shrink: 0; }
+    .menu-btn span { width: 18px; height: 2px; border-radius: 2px; background: currentColor; transition: transform 0.24s ease, opacity 0.24s ease; }
+    .menu-btn.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .menu-btn.active span:nth-child(2) { opacity: 0; }
+    .menu-btn.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu-backdrop { position: fixed; inset: 66px 0 0; background: rgba(12,18,30,0.28); opacity: 0; pointer-events: none; transition: opacity 0.22s ease; z-index: 185; }
+    .mobile-menu-backdrop.open { opacity: 1; pointer-events: auto; }
+    .mobile-nav-panel { display: none; position: fixed; top: 66px; left: 0; right: 0; padding: 12px 16px 18px; background: rgba(255,255,255,0.97); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border-bottom: 1px solid var(--border); box-shadow: 0 10px 26px rgba(16,24,40,0.08); z-index: 186; }
+    .mobile-nav-panel.open { display: block; }
+    .mobile-nav-links { display: flex; flex-direction: column; gap: 6px; }
+    .mobile-nav-link { display: block; padding: 12px 14px; border-radius: 12px; font-size: 15px; font-weight: 600; color: var(--text2); background: #fff; border: 1px solid transparent; }
+    .mobile-nav-link.active { color: var(--orange); background: #FFF5EE; border-color: rgba(255,92,0,0.14); }
+    .mobile-nav-contact { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); display: flex; flex-direction: column; gap: 8px; }
+    .mobile-nav-phone { font-size: 15px; font-weight: 700; color: var(--text); }
+    @media (max-width: 860px) {
+      .hdr-phone { display: none !important; }
+      .hdr-right .btn-ora { display: none !important; }
+      .menu-btn { display: inline-flex !important; }
+    }
+    .partners-marquee { position: relative; padding: 6px 0; cursor: grab; user-select: none; overflow: hidden; }
+    .partners-marquee:active { cursor: grabbing; }
+    .partners-marquee::before, .partners-marquee::after { content: ''; position: absolute; top: 0; bottom: 0; width: 84px; z-index: 2; pointer-events: none; }
+    .partners-marquee::before { left: 0; background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,.85) 35%, rgba(255,255,255,.4) 65%, rgba(255,255,255,0) 100%); }
+    .partners-marquee::after  { right: 0; background: linear-gradient(to left,  rgba(255,255,255,1) 0%, rgba(255,255,255,.85) 35%, rgba(255,255,255,.4) 65%, rgba(255,255,255,0) 100%); }
+    @media (max-width: 620px) {
+      .partners-marquee::before, .partners-marquee::after { width: 27px; backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); }
+      .partners-marquee::before { background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,.8) 40%, rgba(255,255,255,.3) 70%, rgba(255,255,255,0) 100%); }
+      .partners-marquee::after  { background: linear-gradient(to left,  rgba(255,255,255,1) 0%, rgba(255,255,255,.8) 40%, rgba(255,255,255,.3) 70%, rgba(255,255,255,0) 100%); }
+    }
+    .partners-track { display: flex !important; gap: 12px; width: max-content; will-change: transform; }
+    .partner-chip { flex-shrink: 0; padding: 9px 22px; border: 1.5px solid var(--border); border-radius: 8px; font-size: 14px; font-weight: 600; color: var(--text2); background: #fff; box-shadow: 0 1px 4px rgba(0,0,0,.04); white-space: nowrap; transition: border-color .18s, color .18s, transform .18s, box-shadow .18s; }
+    .partner-chip:hover { border-color: var(--orange); color: var(--orange); transform: scale(1.03); box-shadow: 0 4px 16px rgba(255,92,0,.1); }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════ HEADER ══════════════════ -->
+<header class="hdr">
+  <div class="hdr-in">
+    <a href="index.html" class="logo">
+      <img src="images/logo-carwaw-black.png" alt="BIDDER" style="height:54px;width:auto;object-fit:contain;" />
+    </a>
+
+    <nav class="nav-main">
+      <a href="index.html" class="act">Головна</a>
+      <a href="catalog.html">Каталог авто</a>
+      <a href="catalog-available.html">Авто в дорозі</a>
+      <a href="calculator.html">Калькулятор</a>
+      <a href="blog.html">Блог</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contacts.html">Контакти</a>
+    </nav>
+
+    <!-- Mobile social icons -->
+    <div class="hdr-socials">
+      <a href="tel:+48784890644" class="hdr-soc-btn" title="Телефон">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.63a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      </a>
+      <a href="https://wa.me/48784890644" class="hdr-soc-btn" title="WhatsApp">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.557 4.126 1.528 5.855L.057 23.272a.75.75 0 00.921.921l5.417-1.471A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.705 9.705 0 01-4.949-1.354l-.355-.21-3.676.998 1.007-3.574-.229-.368A9.708 9.708 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+      </a>
+      <a href="https://www.facebook.com/" class="hdr-soc-btn" title="Facebook">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073C24 5.406 18.627 0 12 0S0 5.406 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.235 2.686.235v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/" class="hdr-soc-btn" title="Instagram">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      </a>
+      <a href="https://www.tiktok.com/" class="hdr-soc-btn" title="TikTok">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.73a8.16 8.16 0 004.77 1.52V6.78a4.85 4.85 0 01-1-.09z"/></svg>
+      </a>
+    </div>
+
+    <div class="hdr-right">
+      <a href="tel:+48784890644" class="hdr-phone">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.63a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        +48 784 890 644
+      </a>
+      <div class="lang-switch" id="langSwitch" aria-label="Language">
+        <button class="lang-trigger" id="langTrigger" onclick="event.stopPropagation();document.getElementById('langSwitch').classList.toggle('open')" aria-haspopup="true">
+          <span id="langLabel">PL</span>
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3.5l3 3 3-3"/></svg>
+        </button>
+        <div class="lang-menu" id="langMenu">
+          <button class="lang-btn" data-lang="pl" onclick="setLang('pl')">PL</button>
+          <button class="lang-btn" data-lang="uk" onclick="setLang('uk')">UK</button>
+          <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+        </div>
+      </div>
+      <a href="contacts.html" class="btn-ora">Зв'язатися</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Відкрити меню" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu-backdrop" id="mobileMenuBackdrop"></div>
+<nav class="mobile-nav-panel" id="mobileNavPanel" aria-label="Мобільне меню">
+  <div class="mobile-nav-links">
+    <a href="index.html" class="mobile-nav-link active">Головна</a>
+    <a href="catalog.html" class="mobile-nav-link">Каталог авто</a>
+    <a href="catalog-available.html" class="mobile-nav-link">Авто в дорозі</a>
+    <a href="calculator.html" class="mobile-nav-link">Калькулятор</a>
+    <a href="blog.html" class="mobile-nav-link">Блог</a>
+    <a href="faq.html" class="mobile-nav-link">FAQ</a>
+    <a href="contacts.html" class="mobile-nav-link">Контакти</a>
+  </div>
+  <div class="mobile-nav-contact">
+    <a href="tel:+48784890644" class="mobile-nav-phone">+48 784 890 644</a>
+    <a href="tel:+48571660242" class="mobile-nav-phone">+48 571 660 242</a>
+    <a href="contacts.html" class="btn-ora" style="display:flex;align-items:center;justify-content:center;margin-top:4px;" onclick="document.getElementById('mobileNavPanel').classList.remove('open');document.getElementById('menuBtn').classList.remove('active');document.getElementById('mobileMenuBackdrop').classList.remove('open');">Зв'язатися</a>
+  </div>
+  <div class="mobile-nav-lang">
+    <span class="mobile-nav-lang-label">Мова</span>
+    <div class="mobile-lang-btns">
+      <button class="lang-btn" data-lang="pl" onclick="setLang('pl')">PL</button>
+      <button class="lang-btn" data-lang="uk" onclick="setLang('uk')">UK</button>
+      <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════════ HERO ══════════════════ -->
+<section class="hero">
+  <div class="hero-in">
+    <div class="hero-left">
+      <div class="hero-badge" data-i18n="hero.badge"><span></span>BIDDER — №1 в Польщі</div>
+      <h1 data-i18n-html="hero.title">Ваш надійний партнер<br/>по імпорту авто з<br/><em>США, Канади та Кореї</em></h1>
+      <p class="hero-sub" data-i18n="hero.sub">Ми доставляємо автомобілі без ризику і без прихованих платежів. Повна прозорість — від ставки на аукціоні до ключів у вас в руках.</p>
+      <div class="hero-ctas">
+        <a href="catalog.html" class="btn-hero primary">
+          <span data-i18n="hero.cta1">Ознайомитись з пропозиціями</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
+        </a>
+        <a href="contacts.html" class="btn-hero ghost" data-i18n="hero.cta2">Зв'язатись з нами</a>
+      </div>
+      <div class="hero-scenarios">
+        <a href="catalog.html" class="hero-scenario">
+          <span class="hero-scenario__icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5L12 4l9 6.5"/><path d="M5 9.5V20h14V9.5"/><path d="M9 20v-6h6v6"/></svg>
+          </span>
+          <span class="hero-scenario__text">
+            <strong>В наявності</strong>
+            <small>Можна подивитися сьогодні</small>
+          </span>
+        </a>
+        <a href="catalog-available.html" class="hero-scenario">
+          <span class="hero-scenario__icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17h13a4 4 0 004-4v0H8a5 5 0 00-5 4z"/><path d="M8 13l2-4h5l2 4"/><path d="M7 7h10"/></svg>
+          </span>
+          <span class="hero-scenario__text">
+            <strong>В дорозі</strong>
+            <small>Відстеження онлайн</small>
+          </span>
+        </a>
+        <a href="contacts.html" class="hero-scenario">
+          <span class="hero-scenario__icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><path d="M6 17l4-10 4 4 4-7"/></svg>
+          </span>
+          <span class="hero-scenario__text">
+            <strong>Під замовлення</strong>
+            <small>Підбір на аукціоні</small>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ TRUST STRIP ══════════════════ -->
+<div class="trust">
+  <div class="trust-in">
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+      </div>
+      <div class="trust-text"><strong data-i18n="trust.t1">100% прозорість</strong><span data-i18n="trust.d1">Всі платежі та документи у вас на руках</span></div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16M12 7v4m0 0v4m0-4h4m-4 0H8"/></svg>
+      </div>
+      <div class="trust-text"><strong data-i18n="trust.t2">6 складів у США</strong><span data-i18n="trust.d2">Нью-Йорк, Флорида, Техас, Каліфорнія</span></div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+      </div>
+      <div class="trust-text"><strong data-i18n="trust.t3">Tracking в реальному часі</strong><span data-i18n="trust.d3">Відстежуйте контейнер від порту до дому</span></div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      </div>
+      <div class="trust-text"><strong data-i18n="trust.t4">Підтримка 24/7</strong><span data-i18n="trust.d4">Telegram, WhatsApp, телефон</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ PARTNERS STRIP ══════════════════ -->
+<div class="partners">
+  <div class="partners-in">
+    <div class="partners-label" data-i18n="partners.label">Офіційний доступ до провідних аукціонів</div>
+  </div>
+  <div class="partners-marquee" id="partnersMarquee">
+    <div class="partners-track" id="partnersTrack">
+      <div class="partner-chip">Copart</div>
+      <div class="partner-chip">IAAI</div>
+      <div class="partner-chip">Auto1</div>
+      <div class="partner-chip">Copart.ca</div>
+      <div class="partner-chip">Manheim</div>
+      <div class="partner-chip">BCA</div>
+      <div class="partner-chip">Happy Car Service</div>
+      <div class="partner-chip">EDGE Pipeline</div>
+      <div class="partner-chip">OPENLANE</div>
+      <div class="partner-chip">Impact</div>
+      <div class="partner-chip">ACV Auctions</div>
+      <div class="partner-chip">Iron Planet</div>
+      <div class="partner-chip">Copart.de</div>
+      <div class="partner-chip">Glovis</div>
+      <div class="partner-chip">ALD Carmarket</div>
+      <div class="partner-chip">Stark Auto Sales</div>
+      <div class="partner-chip">Auksjonen</div>
+      <div class="partner-chip">AuctionTime</div>
+      <div class="partner-chip">Duocar</div>
+      <div class="partner-chip">kvdcars</div>
+      <div class="partner-chip">Euro Auctions</div>
+      <div class="partner-chip">Copart.fi</div>
+      <div class="partner-chip">Blinto</div>
+      <div class="partner-chip">Exleasingcar</div>
+      <div class="partner-chip">Boat Trader</div>
+      <div class="partner-chip">Autobid.de</div>
+      <div class="partner-chip">Taylor&amp;Martin LLC</div>
+      <div class="partner-chip">Autorola</div>
+      <div class="partner-chip">Copart.uk</div>
+      <div class="partner-chip">Womauktion</div>
+      <div class="partner-chip">Klaravik</div>
+      <div class="partner-chip">Troostwijk Auctions</div>
+      <div class="partner-chip">Alcopa Auction</div>
+      <div class="partner-chip">Caronsale</div>
+      <!-- дубль для безшовного лупу -->
+      <div class="partner-chip">Copart</div>
+      <div class="partner-chip">IAAI</div>
+      <div class="partner-chip">Auto1</div>
+      <div class="partner-chip">Copart.ca</div>
+      <div class="partner-chip">Manheim</div>
+      <div class="partner-chip">BCA</div>
+      <div class="partner-chip">Happy Car Service</div>
+      <div class="partner-chip">EDGE Pipeline</div>
+      <div class="partner-chip">OPENLANE</div>
+      <div class="partner-chip">Impact</div>
+      <div class="partner-chip">ACV Auctions</div>
+      <div class="partner-chip">Iron Planet</div>
+      <div class="partner-chip">Copart.de</div>
+      <div class="partner-chip">Glovis</div>
+      <div class="partner-chip">ALD Carmarket</div>
+      <div class="partner-chip">Stark Auto Sales</div>
+      <div class="partner-chip">Auksjonen</div>
+      <div class="partner-chip">AuctionTime</div>
+      <div class="partner-chip">Duocar</div>
+      <div class="partner-chip">kvdcars</div>
+      <div class="partner-chip">Euro Auctions</div>
+      <div class="partner-chip">Copart.fi</div>
+      <div class="partner-chip">Blinto</div>
+      <div class="partner-chip">Exleasingcar</div>
+      <div class="partner-chip">Boat Trader</div>
+      <div class="partner-chip">Autobid.de</div>
+      <div class="partner-chip">Taylor&amp;Martin LLC</div>
+      <div class="partner-chip">Autorola</div>
+      <div class="partner-chip">Copart.uk</div>
+      <div class="partner-chip">Womauktion</div>
+      <div class="partner-chip">Klaravik</div>
+      <div class="partner-chip">Troostwijk Auctions</div>
+      <div class="partner-chip">Alcopa Auction</div>
+      <div class="partner-chip">Caronsale</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ CALCULATOR ══════════════════ -->
+<section class="sec">
+  <div class="sec-in">
+    <div class="sec-hd">
+      <div class="stag">Калькулятор</div>
+      <h2 class="stitle">Розрахуйте точну вартість вашого імпорту за лічені секунди</h2>
+      <p class="sdesc">Знайте заздалегідь, до якої суми можна торгуватися на аукціоні. Ми враховуємо всі витрати — від молотка до ключів у вас в руках.</p>
+    </div>
+
+    <div class="calc-grid">
+      <div class="calc-col">
+        <h3>Комплексна оцінка включає в себе</h3>
+        <ul class="check-list">
+          <li><svg viewBox="0 0 24 24" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>Ціна на аукціоні + комісія майданчика</li>
+          <li><svg viewBox="0 0 24 24" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>Транспорт з місця аукціону до складу в США</li>
+          <li><svg viewBox="0 0 24 24" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>Обробка та зберігання авто на складі</li>
+          <li><svg viewBox="0 0 24 24" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>Морський фрахт до порту призначення</li>
+          <li><svg viewBox="0 0 24 24" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>Митне оформлення (ЄП або повна ставка)</li>
+          <li><svg viewBox="0 0 24 24" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>Доставка з порту до вашого міста</li>
+        </ul>
+      </div>
+      <div class="calc-col">
+        <h3>Персоналізація вичислень</h3>
+        <ul class="check-list">
+          <li><svg viewBox="0 0 24 24" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>Тип авто (Sedan, SUV, Truck, Minivan)</li>
+          <li><svg viewBox="0 0 24 24" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>Рік випуску і об'єм двигуна</li>
+          <li><svg viewBox="0 0 24 24" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>Порт відправки (NJ, FL, CA, TX, Корея)</li>
+          <li><svg viewBox="0 0 24 24" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>Пункт призначення в Польщі</li>
+          <li><svg viewBox="0 0 24 24" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>Тип оформлення (ЄП, повна ставка, ГП)</li>
+          <li><svg viewBox="0 0 24 24" stroke-width="2.2"><polyline points="20 6 9 17 4 12"/></svg>Ваш особистий бюджет і бажані марки</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="calc-how">
+      <div>
+        <h3 style="font-size:17px;font-weight:800;margin-bottom:10px;color:var(--text)">Як отримати доступ до калькулятора?</h3>
+        <p style="font-size:13px;color:var(--text2);margin-bottom:20px;line-height:1.6;">Калькулятор витрат доступний у особистому кабінеті в мобільному додатку BIDDER.</p>
+        <div class="calc-steps">
+          <div class="cstep">
+            <div class="cstep-num">1</div>
+            <div class="cstep-txt"><strong>Зв'яжіться з нашим менеджером</strong></div>
+          </div>
+          <div class="cstep">
+            <div class="cstep-num">2</div>
+            <div class="cstep-txt"><strong>Отримайте дані доступу до додатку</strong></div>
+          </div>
+          <div class="cstep">
+            <div class="cstep-num">3</div>
+            <div class="cstep-txt"><strong>Завантажте додаток і увійдіть до свого кабінету</strong></div>
+          </div>
+          <div class="cstep">
+            <div class="cstep-num">4</div>
+            <div class="cstep-txt"><strong>Користуйтесь калькулятором без обмежень</strong><span>Перевіряйте вартість різних авто та портів, порівнюйте варіанти й плануйте імпорт!</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="calc-ctas">
+        <a href="calculator.html" class="btn-phone main" style="justify-content:center;">
+          Відкрити калькулятор
+        </a>
+        <a href="tel:+48784890644" class="btn-phone outline orange">
+          <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.63a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          Зателефонуйте: +48 784 890 644
+        </a>
+        <a href="tel:+48571660242" class="btn-phone outline orange">
+          <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.63a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          Зателефонуйте: +48 571 660 242
+        </a>
+        </a>
+      </div>
+    <div class="calc-badges">
+      <div class="calc-badge">
+        <svg width="16" height="16" viewBox="0 0 24 24" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        Економія до 40%
+      </div>
+      <div class="calc-badge">
+        <svg width="16" height="16" viewBox="0 0 24 24" stroke-width="2"><path d="M9 12h6M9 16h6M9 8h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        Повна документація
+      </div>
+      <div class="calc-badge">
+        <svg width="16" height="16" viewBox="0 0 24 24" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+        Юридична підтримка
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════ АВТО В ДОРОЗІ — РЕАЛЬНІ ЛОТИ ══════════════════ -->
+<section class="sec bg-lt">
+  <div class="sec-in">
+    <div class="sec-hd">
+      <div class="stag">Авто в дорозі</div>
+      <h2 class="stitle">Вже куплено та їде до вас</h2>
+      <p class="sdesc">Реальні автомобілі, які вже придбано та знаходяться на шляху. Можна забронювати або зв'язатись для деталей.</p>
+    </div>
+
+    <div class="cars-grid">
+
+      <!-- 2024 Hummer EV SUV -->
+      <a href="car.html#vin=1GKB0NDE9RU112057" class="car-card">
+        <div class="car-img-wrap">
+          <img src="images/local/1GKB0NDE9RU112057/1.jpg" alt="2024 Hummer EV SUV" loading="lazy" onerror="this.style.display='none'"/>
+          <span class="car-badge badge-green">В ДОРОЗІ</span>
+        </div>
+        <div class="car-body">
+          <div class="car-make">GMC · 2024</div>
+          <div class="car-name">Hummer EV SUV</div>
+          <div class="car-specs">
+            <span class="car-spec">
+              <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              Електро · 830 к.с.
+            </span>
+            <span class="car-spec">
+              <svg viewBox="0 0 24 24" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+              16 000 км
+            </span>
+            <span class="car-spec">
+              <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
+              Львів
+            </span>
+          </div>
+          <div class="car-footer">
+            <div class="car-price"><strong>$37 100</strong><span>Ціна продавця</span></div>
+            <div class="car-btn">Детальніше <svg viewBox="0 0 24 24" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </div>
+        </div>
+      </a>
+
+      <!-- 2023 Jeep Grand Cherokee -->
+      <a href="car.html#vin=1C4RJHBGXPC619954" class="car-card">
+        <div class="car-img-wrap">
+          <img src="images/local/1C4RJHBGXPC619954/1.jpg" alt="2023 Jeep Grand Cherokee" loading="lazy" onerror="this.style.display='none'"/>
+          <span class="car-badge badge-green">В ДОРОЗІ</span>
+        </div>
+        <div class="car-body">
+          <div class="car-make">Jeep · 2023</div>
+          <div class="car-name">Grand Cherokee</div>
+          <div class="car-specs">
+            <span class="car-spec">
+              <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z"/><path d="M8 12h8M12 8v8"/></svg>
+              3.6L V6 · 293 к.с.
+            </span>
+            <span class="car-spec">
+              <svg viewBox="0 0 24 24" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+              74 000 км
+            </span>
+            <span class="car-spec">
+              <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
+              Львів
+            </span>
+          </div>
+          <div class="car-footer">
+            <div class="car-price"><strong>$22 900</strong><span>Ціна продавця</span></div>
+            <div class="car-btn">Детальніше <svg viewBox="0 0 24 24" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </div>
+        </div>
+      </a>
+
+      <!-- 2026 Ford Escape Hybrid -->
+      <a href="car.html#vin=1FMCU0E13TUA17077" class="car-card">
+        <div class="car-img-wrap">
+          <img src="images/local/1FMCU0E13TUA17077/1.jpg" alt="2026 Ford Escape Hybrid" loading="lazy" onerror="this.style.display='none'"/>
+          <span class="car-badge badge-ora">НОВЕ</span>
+        </div>
+        <div class="car-body">
+          <div class="car-make">Ford · 2026</div>
+          <div class="car-name">Escape Hybrid</div>
+          <div class="car-specs">
+            <span class="car-spec">
+              <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              Гібрид · 200 к.с.
+            </span>
+            <span class="car-spec">
+              <svg viewBox="0 0 24 24" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+              0 км (нове)
+            </span>
+            <span class="car-spec">
+              <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
+              Львів
+            </span>
+          </div>
+          <div class="car-footer">
+            <div class="car-price"><strong>$22 700</strong><span>Ціна продавця</span></div>
+            <div class="car-btn">Детальніше <svg viewBox="0 0 24 24" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </div>
+        </div>
+      </a>
+
+      <!-- 2023 Volkswagen ID.4 -->
+      <a href="car.html#vin=1V25MPE83PC028416" class="car-card">
+        <div class="car-img-wrap">
+          <img src="images/local/1V25MPE83PC028416/1.jpg" alt="2023 VW ID.4" loading="lazy" onerror="this.style.display='none'"/>
+          <span class="car-badge badge-green">В ДОРОЗІ</span>
+        </div>
+        <div class="car-body">
+          <div class="car-make">Volkswagen · 2023</div>
+          <div class="car-name">ID.4</div>
+          <div class="car-specs">
+            <span class="car-spec">
+              <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              Електро · 201 к.с.
+            </span>
+            <span class="car-spec">
+              <svg viewBox="0 0 24 24" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+              51 000 км
+            </span>
+            <span class="car-spec">
+              <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
+              Львів
+            </span>
+          </div>
+          <div class="car-footer">
+            <div class="car-price"><strong>$18 500</strong><span>Ціна продавця</span></div>
+            <div class="car-btn">Детальніше <svg viewBox="0 0 24 24" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </div>
+        </div>
+      </a>
+
+      <!-- 2023 Chevrolet Bolt EUV -->
+      <a href="car.html#vin=1G1FY6S00P4150432" class="car-card">
+        <div class="car-img-wrap">
+          <img src="images/local/1G1FY6S00P4150432/1.jpg" alt="2023 Chevrolet Bolt EUV" loading="lazy" onerror="this.style.display='none'"/>
+          <span class="car-badge badge-green">В ДОРОЗІ</span>
+        </div>
+        <div class="car-body">
+          <div class="car-make">Chevrolet · 2023</div>
+          <div class="car-name">Bolt EUV</div>
+          <div class="car-specs">
+            <span class="car-spec">
+              <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              Електро · 200 к.с.
+            </span>
+            <span class="car-spec">
+              <svg viewBox="0 0 24 24" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+              47 000 км
+            </span>
+            <span class="car-spec">
+              <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
+              Львів
+            </span>
+          </div>
+          <div class="car-footer">
+            <div class="car-price"><strong>$13 850</strong><span>Ціна продавця</span></div>
+            <div class="car-btn">Детальніше <svg viewBox="0 0 24 24" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </div>
+        </div>
+      </a>
+
+      <!-- 2021 Volkswagen Passat -->
+      <a href="car.html#vin=1VWSA7A38MC008663" class="car-card">
+        <div class="car-img-wrap">
+          <img src="images/local/1VWSA7A38MC008663/1.jpg" alt="2021 VW Passat" loading="lazy" onerror="this.style.display='none'"/>
+          <span class="car-badge badge-green">В ДОРОЗІ</span>
+        </div>
+        <div class="car-body">
+          <div class="car-make">Volkswagen · 2021</div>
+          <div class="car-name">Passat</div>
+          <div class="car-specs">
+            <span class="car-spec">
+              <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z"/><path d="M8 12h8M12 8v8"/></svg>
+              2.0L TSI · 174 к.с.
+            </span>
+            <span class="car-spec">
+              <svg viewBox="0 0 24 24" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+              153 000 км
+            </span>
+            <span class="car-spec">
+              <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
+              Львів
+            </span>
+          </div>
+          <div class="car-footer">
+            <div class="car-price"><strong>$12 500</strong><span>Ціна продавця</span></div>
+            <div class="car-btn">Детальніше <svg viewBox="0 0 24 24" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </div>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="cars-more">
+      <a href="catalog-available.html" class="btn-ora" style="font-size:15px;padding:13px 32px">
+        Переглянути всі 10 авто в дорозі
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ BUDGET RANGES ══════════════════ -->
+<section class="sec bg-lt">
+  <div class="sec-in">
+    <div class="sec-hd">
+      <div class="stag">Підбір за бюджетом</div>
+      <h2 class="stitle">Що можна купити за вашим бюджетом?</h2>
+    </div>
+    <div class="budget-grid">
+
+      <div class="budget-card">
+        <div class="budget-top"></div>
+        <div class="budget-price">до $15&nbsp;000</div>
+        <ul class="budget-cars">
+          <li>Chevrolet Bolt EUV 2023</li>
+          <li>Ford Escape Hybrid 2020</li>
+          <li>VW Passat 2021</li>
+        </ul>
+        <a href="catalog.html" class="budget-btn">Переглянути авто</a>
+      </div>
+
+      <div class="budget-card">
+        <div class="budget-top"></div>
+        <div class="budget-price">до $25&nbsp;000</div>
+        <ul class="budget-cars">
+          <li>Jeep Grand Cherokee 2023</li>
+          <li>Ford Escape Hybrid 2026</li>
+          <li>VW ID.4 2023</li>
+        </ul>
+        <a href="catalog.html" class="budget-btn">Переглянути авто</a>
+      </div>
+
+      <div class="budget-card">
+        <div class="budget-top"></div>
+        <div class="budget-price">від $25&nbsp;000</div>
+        <ul class="budget-cars">
+          <li>Hummer EV SUV 2024</li>
+          <li>Jeep Grand Cherokee 4xe</li>
+        </ul>
+        <a href="catalog.html" class="budget-btn">Переглянути авто</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ VIDEO DEMO ══════════════════ -->
+<section class="sec bg-lt">
+  <div class="sec-in">
+    <div class="sec-hd">
+      <div class="stag">Як це працює</div>
+      <h2 class="stitle">Подивіться, як працює наш застосунок</h2>
+      <p class="sdesc">Перегляньте коротке відео про те, як ми допомагаємо придбати авто з аукціону — від ставки до ключів у вас в руках</p>
+    </div>
+    <div class="video-wrap">
+      <div class="video-thumb">
+        <img src="images/hero-bg.jpg" alt="Демо сервісу BIDDER" onerror="this.style.background='#1B2A4A'"/>
+        <div class="video-overlay">
+          <button class="play-btn" onclick="this.closest('.video-thumb').innerHTML='<iframe width=\'100%\' height=\'100%\' src=\'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1\' frameborder=\'0\' allowfullscreen style=\'border-radius:16px\'></iframe>'">
+            <svg viewBox="0 0 24 24" fill="#fff" width="28" height="28"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </button>
+          <div class="video-label">Переглянути презентацію</div>
+        </div>
+      </div>
+    </div>
+    <div class="video-caption">
+      Наш сервіс дозволяє комплексно здійснювати імпорт автомобілів з аукціонів США, Китаю та Кореї. Повна прозорість, безпечний розрахунок і підтримка на кожному кроці.
+    </div>
+    <div class="video-ctas">
+      <a href="catalog.html" class="btn-ora">Переглянути каталог авто</a>
+      <a href="catalog-available.html" class="btn-vid-ghost">Авто в дорозі →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ WHY US ══════════════════ -->
+<section class="sec" id="about">
+  <div class="sec-in">
+    <div class="why-grid">
+      <div class="why-left">
+        <div class="stag">Чому ми</div>
+        <h2>Гарантована і безпечна доставка автомобілів із США</h2>
+        <p>Ми надаємо послуги купівлі та транспортування авто з США з 2013 року. Офіційний партнер Copart та IAAI. Власна інфраструктура у 6 магазинах у США.</p>
+        <ul class="why-chk">
+          <li><div class="chk-dot"><svg viewBox="0 0 12 10" stroke-width="2.5"><polyline points="1 5 4.5 8.5 11 1"/></svg></div>Понад 5 000 автомобілів доставлено</li>
+          <li><div class="chk-dot"><svg viewBox="0 0 12 10" stroke-width="2.5"><polyline points="1 5 4.5 8.5 11 1"/></svg></div>Повна прозорість на кожному етапі</li>
+          <li><div class="chk-dot"><svg viewBox="0 0 12 10" stroke-width="2.5"><polyline points="1 5 4.5 8.5 11 1"/></svg></div>Доступ до Copart, IAAI, Manheim, EDGE Pipeline</li>
+          <li><div class="chk-dot"><svg viewBox="0 0 12 10" stroke-width="2.5"><polyline points="1 5 4.5 8.5 11 1"/></svg></div>Власні склади в Нью-Йорку, Флориді, Техасі</li>
+          <li><div class="chk-dot"><svg viewBox="0 0 12 10" stroke-width="2.5"><polyline points="1 5 4.5 8.5 11 1"/></svg></div>Юридичний супровід та розмитнення</li>
+          <li><div class="chk-dot"><svg viewBox="0 0 12 10" stroke-width="2.5"><polyline points="1 5 4.5 8.5 11 1"/></svg></div>Підтримка 24/7 у Telegram і WhatsApp</li>
+        </ul>
+      </div>
+      <div class="why-stats">
+        <div class="wstat"><div class="wstat-n">13</div><div class="wstat-l">Років на ринку</div></div>
+        <div class="wstat dark"><div class="wstat-n">40%</div><div class="wstat-l">Дешевше vs EU</div></div>
+        <div class="wstat"><div class="wstat-n">6</div><div class="wstat-l">Складів у США</div></div>
+        <div class="wstat accent"><div class="wstat-n">45</div><div class="wstat-l">Днів доставки</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ MOBILE APP ══════════════════ -->
+<section class="sec bg-lt">
+  <div class="sec-in">
+    <div class="app-grid">
+      <div class="app-content">
+        <div class="stag">Мобільний застосунок</div>
+        <h2 class="app-title">Всі імпортовані дані<br/>під контролем на вашому телефоні</h2>
+        <p class="app-desc">Відстежуйте ставки, статус доставки та спілкуйтеся з менеджером прямо зі смартфона — в будь-який час, з будь-якої точки світу.</p>
+        <ul class="app-feat-list">
+          <li>
+            <div class="afl-ico"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke="var(--orange)" fill="none"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
+            <div><strong>Всі аукціони в одному місці</strong><br/>Переглядайте і ліцитуйте на Copart, IAAI, Manheim та аукціонах Канади, Кореї та Китаю</div>
+          </li>
+          <li>
+            <div class="afl-ico"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke="var(--orange)" fill="none"><path d="M9.663 17h4.673M12 3v1m6.364 1.636-.707.707M21 12h-1M4 12H3m3.343-5.657-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg></div>
+            <div><strong>Штучний інтелект (AI)</strong><br/>Аналізує авто, готує презентації з оцінкою та аналізом ушкоджень</div>
+          </li>
+          <li>
+            <div class="afl-ico"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke="var(--orange)" fill="none"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
+            <div><strong>Повна історія і верифікація</strong><br/>Перевірте історію через Carfax, статус Title і статус продавця</div>
+          </li>
+          <li>
+            <div class="afl-ico"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke="var(--orange)" fill="none"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
+            <div><strong>Відстеження доставки (Tracking)</strong><br/>Моніторте розташування контейнера на карті в реальному часі з прогнозом доставки</div>
+          </li>
+        </ul>
+        <div class="app-store-btns">
+          <a href="#" class="app-store-btn">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            <div><span>Завантажити для</span><strong>App Store</strong></div>
+          </a>
+          <a href="#" class="app-store-btn">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M3.18 23.76c.3.17.65.19.96.07l12.45-7.19-2.59-2.6-10.82 9.72zm16.53-9.54L16.8 12l2.93-2.21-10.59-6.12c-.37-.21-.8-.23-1.18-.07L16.8 12l2.91 2.22zM2.1 1.44C2.04 1.63 2 1.83 2 2.04v19.92c0 .21.04.41.1.6l.06.06L13.28 12v-.28L2.16 1.38l-.06.06z"/></svg>
+            <div><span>Завантажити для</span><strong>Google Play</strong></div>
+          </a>
+        </div>
+      </div>
+      <div class="app-phone">
+        <div class="phone-mockup">
+          <div class="phone-screen">
+            <div class="phone-screen-inner">
+              <div class="phone-status"></div>
+              <div class="phone-header-bar">
+                <div class="phone-logo-mini">C</div>
+                <span>BIDDER</span>
+                <div class="phone-notif">3</div>
+              </div>
+              <div class="phone-card">
+                <div class="pc-label">ВІДСЛІДКОВУЄТЬСЯ</div>
+                <div class="pc-title">2024 Hummer EV SUV</div>
+                <div class="pc-progress-wrap">
+                  <div class="pc-step done">Куплено</div>
+                  <div class="pc-step done">Склад</div>
+                  <div class="pc-step active">В морі</div>
+                  <div class="pc-step">Митниця</div>
+                </div>
+                <div class="pc-eta">Прогноз прибуття: <strong>14 квіт</strong></div>
+              </div>
+              <div class="phone-card" style="margin-top:10px">
+                <div class="pc-label" style="color:#16a34a">АУКЦІОН</div>
+                <div class="pc-title">2023 Tesla Model Y</div>
+                <div class="pc-bid">Поточна ставка: <strong style="color:var(--orange)">$18 400</strong></div>
+                <div class="pc-timer">⏱ 2 год 34 хв до закінчення</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ DESKTOP APP ══════════════════ -->
+<section class="sec">
+  <div class="sec-in" style="text-align:center">
+    <div class="stag">Вебплатформа</div>
+    <h2 class="stitle">Всі дані під контролем<br/>на вашому комп'ютері</h2>
+    <p class="sdesc" style="margin-bottom:36px">Повна версія платформи доступна в браузері. Не потрібно нічого встановлювати — відкрийте і починайте.</p>
+    <div class="desktop-btns">
+      <a href="catalog.html" class="desktop-btn">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M0 12.402l4.547.01V7.32H0zm0 5.26h4.547v-4.588H0zM5.026 17.662h6.746v-4.588H5.026zm0-5.26h6.746V7.32H5.026zM12.25 17.662H19v-4.588h-6.75zm0-10.342v4.49H19V7.32z"/></svg>
+        <div><span>Для</span><strong>Windows</strong></div>
+      </a>
+      <a href="catalog.html" class="desktop-btn">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        <div><span>Для</span><strong>macOS</strong></div>
+      </a>
+    </div>
+    <p class="desktop-note">Працює у Chrome, Safari, Firefox та Edge без додаткових налаштувань</p>
+  </div>
+</section>
+
+<!-- ══════════════════ FEATURES ══════════════════ -->
+<section class="sec bg-nv" id="features">
+  <div class="sec-in">
+    <div class="sec-hd">
+      <div class="stag" style="color:#FF8C46;background:rgba(255,92,0,.2);border-color:rgba(255,92,0,.4)">Переваги</div>
+      <h2 class="stitle" style="color:#fff">Імпорт авто під повним контролем</h2>
+      <p class="sdesc" style="color:rgba(255,255,255,.55)">Ми не просто постачаємо авто — ми будуємо зручний і прозорий процес для кожного клієнта</p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat">
+        <div class="feat-ico"><svg viewBox="0 0 24 24" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
+        <div><div class="feat-title">Всі аукціони в одному місці</div><div class="feat-desc">Copart, IAAI, Manheim, EDGE Pipeline, а також Канада, Корея та Китай — єдине вікно для покупки.</div></div>
+      </div>
+      <div class="feat">
+        <div class="feat-ico"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg></div>
+        <div><div class="feat-title">Штучний інтелект</div><div class="feat-desc">ШІ аналізує ушкодження, оцінює вартість ремонту і розраховує максимальну ставку для виграшу.</div></div>
+      </div>
+      <div class="feat">
+        <div class="feat-ico"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+        <div><div class="feat-title">Повна перевірка VIN</div><div class="feat-desc">Перевірка через Carfax, верифікація Title, статусу продавця та юридичної чистоти авто.</div></div>
+      </div>
+      <div class="feat">
+        <div class="feat-ico"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
+        <div><div class="feat-title">Tracking доставки</div><div class="feat-desc">Відстежуйте контейнер на карті в реальному часі. Точна дата прибуття завжди у вас в телефоні.</div></div>
+      </div>
+      <div class="feat">
+        <div class="feat-ico"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <div><div class="feat-title">Авто в дорозі</div><div class="feat-desc">Вже куплені авто на шляху до вас. Можна забронювати та оглянути ще до прибуття в Україну.</div></div>
+      </div>
+      <div class="feat">
+        <div class="feat-ico"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div><div class="feat-title">Доставка по всій Польщі</div><div class="feat-desc">Власна логістика від порту до вашого міста. Варшава, Краків, Вроцлав, Гданськ, Лодзь та інші.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ STEPS ══════════════════ -->
+<section class="sec" id="steps">
+  <div class="sec-in">
+    <div class="sec-hd">
+      <div class="stag">Як це працює</div>
+      <h2 class="stitle">Імпорт авто у 5 простих кроків</h2>
+      <p class="sdesc">Від підбору авто на аукціоні до отримання ключів — ми поруч на кожному кроці</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">1</div>
+        <div class="step-title">Оберіть і зробіть ставку</div>
+        <div class="step-desc">Переглядайте аукціони, торгуйтеся з ШІ або купуйте напряму через нас</div>
+      </div>
+      <div class="step">
+        <div class="step-n">2</div>
+        <div class="step-title">Оплатіть авто</div>
+        <div class="step-desc">Платежі на рахунок у США. Передоплата від 5–7 робочих днів</div>
+      </div>
+      <div class="step">
+        <div class="step-n">3</div>
+        <div class="step-title">Приймання на складі</div>
+        <div class="step-desc">Отримуємо авто за 3–6 днів, робимо 20–40 фото безкоштовно</div>
+      </div>
+      <div class="step">
+        <div class="step-n">4</div>
+        <div class="step-title">Завантаження і відправка</div>
+        <div class="step-desc">Документи, завантаження та відправка контейнером із США до порту</div>
+      </div>
+      <div class="step">
+        <div class="step-n">5</div>
+        <div class="step-title">Отримання авто</div>
+        <div class="step-desc">Стежте в Telegram, отримайте авто та ключі у вашому місті</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ TESTIMONIALS ══════════════════ -->
+<section class="sec">
+  <div class="sec-in">
+    <div class="sec-hd">
+      <div class="stag">Відгуки</div>
+      <h2 class="stitle">Що кажуть наші клієнти</h2>
+    </div>
+    <div class="testimonials-grid">
+
+      <div class="testi-card">
+        <div class="testi-stars">
+          <span class="testi-star">&#9733;</span>
+          <span class="testi-star">&#9733;</span>
+          <span class="testi-star">&#9733;</span>
+          <span class="testi-star">&#9733;</span>
+          <span class="testi-star">&#9733;</span>
+        </div>
+        <p class="testi-quote">Пригнали Jeep Grand Cherokee за 52 дні. Все прозоро, менеджер завжди на зв'язку. Рекомендую!</p>
+        <div class="testi-author">
+          <div class="testi-avatar">ОМ</div>
+          <div>
+            <div class="testi-name">Олексій М.</div>
+            <div class="testi-city">Варшава</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-stars">
+          <span class="testi-star">&#9733;</span>
+          <span class="testi-star">&#9733;</span>
+          <span class="testi-star">&#9733;</span>
+          <span class="testi-star">&#9733;</span>
+          <span class="testi-star">&#9733;</span>
+        </div>
+        <p class="testi-quote">Брала Ford Escape Hybrid. Ціна виявилась на 38% нижче аналогів в Польщі. Дякую команді!</p>
+        <div class="testi-author">
+          <div class="testi-avatar">МВ</div>
+          <div>
+            <div class="testi-name">Марина В.</div>
+            <div class="testi-city">Львів</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-stars">
+          <span class="testi-star">&#9733;</span>
+          <span class="testi-star">&#9733;</span>
+          <span class="testi-star">&#9733;</span>
+          <span class="testi-star">&#9733;</span>
+          <span class="testi-star">&#9733;</span>
+        </div>
+        <p class="testi-quote">Третє авто через BIDDER. Надійно, швидко, без сюрпризів. Окремий плюс за Telegram-підтримку.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">ДК</div>
+          <div>
+            <div class="testi-name">Дмитро К.</div>
+            <div class="testi-city">Краків</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ FAQ ══════════════════ -->
+<section class="sec bg-lt" id="faq">
+  <div class="sec-in">
+    <div class="sec-hd">
+      <div class="stag">FAQ</div>
+      <h2 class="stitle">Найчастіші запитання</h2>
+      <p class="sdesc">Відповіді на головні питання про процес імпорту авто</p>
+    </div>
+    <div class="faq">
+      <div class="faq-item">
+        <button class="faq-q" onclick="faq(this)">
+          Скільки часу займає весь процес імпорту?
+          <svg width="18" height="18" viewBox="0 0 24 24" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a"><p>Від виграшу аукціону до отримання авто в Польщі в середньому 45–60 днів. Залежить від порту відправки (NJ, FL, CA), завантаженості митниці та вашого міста в Польщі.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="faq(this)">
+          Чи можна оглянути авто перед купівлею?
+          <svg width="18" height="18" viewBox="0 0 24 24" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a"><p>Так. Для авто з аукціонів ми робимо фотозвіт (20–40 фото) та AI-аналіз ушкоджень. Для авто в дорозі — можна приїхати на огляд до Львова або замовити виїзний огляд.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="faq(this)">
+          Чи застрахований автомобіль під час перевезення?
+          <svg width="18" height="18" viewBox="0 0 24 24" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a"><p>Так. Всі авто страхуються на час морського перевезення. Страховка включена у вартість послуги і покриває пошкодження при транспортуванні.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="faq(this)">
+          Що таке «Авто в дорозі» і як це відрізняється від аукціону?
+          <svg width="18" height="18" viewBox="0 0 24 24" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a"><p>«Авто в дорозі» — це авто, які вже куплено нашою командою та знаходяться на шляху до України. Ви отримуєте авто швидше (без очікування аукціону) і з фіксованою ціною.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="faq(this)">
+          Як розраховується вартість розмитнення?
+          <svg width="18" height="18" viewBox="0 0 24 24" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-a"><p>Вартість залежить від типу оформлення (єдиний платіж, повна ставка або гуманітарна програма), року випуску та об'єму двигуна. Ми надаємо детальний кошторис заздалегідь.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ BLOG PREVIEW ══════════════════ -->
+<section class="sec bg-lt">
+  <div class="sec-in">
+    <div class="sec-hd">
+      <div class="stag">Блог</div>
+      <h2 class="stitle">Корисні матеріали</h2>
+    </div>
+    <div class="blog-grid">
+
+      <div class="blog-card">
+        <div class="blog-img" style="background:linear-gradient(135deg,#1B2A4A,#22345c);">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="1.5"><path d="M9 12h6M9 16h6M9 8h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span class="blog-tag">Importer</span>
+            <span class="blog-time">15 хв читання</span>
+          </div>
+          <div class="blog-title">Як купити авто з Copart: покрокова інструкція</div>
+          <a href="blog.html" class="blog-link">Читати →</a>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-img" style="background:linear-gradient(135deg,#1e3460,#243760);">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="1.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span class="blog-tag">Митниця</span>
+            <span class="blog-time">8 хв читання</span>
+          </div>
+          <div class="blog-title">Розмитнення авто в 2025: нові ставки та правила</div>
+          <a href="blog.html" class="blog-link">Читати →</a>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-img" style="background:linear-gradient(135deg,#FF5C00,#FF7A2F);">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="1.5"><path d="M5 17H3a2 2 0 01-2-2V5a2 2 0 012-2h11a2 2 0 012 2v3M9 17a2 2 0 104 0 2 2 0 00-4 0zm8 0a2 2 0 104 0 2 2 0 00-4 0zM9 17H5M17 17h2a2 2 0 002-2v-5l-2-4h-7v11"/></svg>
+        </div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span class="blog-tag">Підбір</span>
+            <span class="blog-time">12 хв читання</span>
+          </div>
+          <div class="blog-title">Топ-10 авто до $20&nbsp;000 на американських аукціонах</div>
+          <a href="blog.html" class="blog-link">Читати →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ SUBSCRIBE BANNER ══════════════════ -->
+<div class="subscribe">
+  <div class="subscribe-in">
+    <h2>Отримуйте нові авто першими</h2>
+    <p>Підпишіться та дізнавайтеся про нові надходження ще до публікації на сайті</p>
+    <form class="subscribe-form" onsubmit="return false;">
+      <input type="email" placeholder="your@email.com" />
+      <button class="subscribe-btn" type="submit">Підписатися</button>
+    </form>
+    <div class="subscribe-note">Без спаму. Тільки нові авто.</div>
+  </div>
+</div>
+
+<!-- ══════════════════ CONTACT ══════════════════ -->
+<section class="sec" id="contact">
+  <div class="sec-in">
+    <div class="contact-wrap">
+      <div class="contact-left">
+        <div class="stag">Контакт</div>
+        <h2>Зв'яжіться з нами</h2>
+        <p>Маєте питання щодо купівлі авто? Наші менеджери відповідають у Telegram протягом 15 хвилин у будь-який час доби.</p>
+        <div class="cinfo">
+          <div class="cinfo-row">
+            <div class="cinfo-ico"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
+            <div class="cinfo-txt"><strong>Адреса офісу</strong><span>Jawczyce, ul. Poznańska, 56, 05-850, Polska</span></div>
+          </div>
+          <div class="cinfo-row">
+            <div class="cinfo-ico"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.63a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+            <div class="cinfo-txt"><strong>Телефон</strong><a href="tel:+48784890644">+48 784 890 644</a><br><a href="tel:+48571660242">+48 571 660 242</a></div>
+          </div>
+          <div class="cinfo-row">
+            <div class="cinfo-ico"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div class="cinfo-txt"><strong>Email</strong><a href="mailto:info@bidders.pl">info@bidders.pl</a><br><a href="mailto:sales@bidders.pl">sales@bidders.pl</a></div>
+          </div>
+        </div>
+        <div style="margin-top:28px;">
+          <a href="tel:+48784890644" class="btn-ora" style="font-size:15px;padding:14px 32px;border-radius:10px;">Задати питання</a>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <div class="form-row">
+          <div class="fg"><label>Ім'я</label><input type="text" placeholder="Ваше ім'я"/></div>
+          <div class="fg"><label>E-mail</label><input type="email" placeholder="your@email.com"/></div>
+        </div>
+        <div class="fg"><label>Номер телефону</label><input type="tel" placeholder="+380..."/></div>
+        <div class="fg"><label>Яке авто вас цікавить?</label><input type="text" placeholder="Марка, модель, бюджет..."/></div>
+        <div class="fg"><label>Повідомлення</label><textarea placeholder="Деталі запиту, побажання, запитання..."></textarea></div>
+        <button class="form-submit">
+          Відправити запит
+          <svg viewBox="0 0 24 24" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ FOOTER ══════════════════ -->
+<footer class="footer">
+  <div class="footer-in">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">
+          <img src="images/logo-carwaw-white.png" alt="BIDDER" style="height:68px;width:auto;object-fit:contain;" />
+        </div>
+        <p class="footer-tag">Ваш надійний партнер в імпорті авто з аукціонів США, Китаю та Європи з 2013 року.</p>
+        <div class="footer-soc">
+          <a class="fsoc" href="#"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M21.198 2.433a2.242 2.242 0 00-1.022.215l-16.5 6.925a2.25 2.25 0 00.153 4.218l3.982 1.23 2.005 6.019a1 1 0 001.782.258l2.695-3.417 4.203 3.102a2.25 2.25 0 003.516-1.418l2.25-14.625a2.25 2.25 0 00-4.064-1.507z"/></svg></a>
+          <a class="fsoc" href="#"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg></a>
+          <a class="fsoc" href="#"><svg viewBox="0 0 24 24" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a class="fsoc" href="#"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        </div>
+      </div>
+
+      <div class="fcol">
+        <h4>Навігація</h4>
+        <ul>
+          <li><a href="index.html">Головна</a></li>
+          <li><a href="catalog.html">Каталог авто</a></li>
+          <li><a href="catalog-available.html">Авто в дорозі</a></li>
+          <li><a href="blog.html">Блог</a></li>
+        </ul>
+      </div>
+
+      <div class="fcol">
+        <h4>Напрямки</h4>
+        <ul>
+          <li><a href="catalog.html">Авто з США</a></li>
+          <li><a href="catalog.html">Авто з Китаю</a></li>
+          <li><a href="catalog.html">Авто з Європи</a></li>
+          <li><a href="catalog.html">Мото та RORO</a></li>
+        </ul>
+      </div>
+
+      <div class="fcol">
+        <h4>Контакт</h4>
+        <p class="fline">Jawczyce, ul. Poznańska, 56, 05-850, Polska</p>
+        <p class="fline"><a href="tel:+48784890644">+48 784 890 644</a></p>
+        <p class="fline"><a href="tel:+48571660242">+48 571 660 242</a></p>
+        <p class="fline"><a href="mailto:info@bidders.pl">info@bidders.pl</a></p>
+        <p class="fline"><a href="mailto:sales@bidders.pl">sales@bidders.pl</a></p>
+      </div>
+    </div>
+
+    <div class="footer-bot">
+      <span>© 2026 BIDDER. Всі права захищено.</span>
+      <div>
+        <a href="privacy.html">Політика конфіденційності</a>
+        <a href="terms.html">Умови використання</a>
+      </div>
+    </div>
+
+    <div class="footer-brands">
+      <img src="images/copart-logo.png" alt="Copart" />
+      <img src="images/copart-logo.png" alt="Copart" />
+      <img src="images/copart-logo.png" alt="Copart" />
+      <img src="images/copart-logo.png" alt="Copart" />
+      <img src="images/copart-logo.png" alt="Copart" />
+      <img src="images/copart-logo.png" alt="Copart" />
+    </div>
+  </div>
+</footer>
+
+<script>
+  function faq(btn) {
+    const item = btn.closest('.faq-item');
+    const open = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!open) item.classList.add('open');
+  }
+</script>
+
+<script>
+  (function () {
+    var menuBtn = document.getElementById('menuBtn');
+    var panel = document.getElementById('mobileNavPanel');
+    var backdrop = document.getElementById('mobileMenuBackdrop');
+
+    function closeMenu() {
+      if (!menuBtn || !panel) return;
+      menuBtn.classList.remove('active');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      panel.classList.remove('open');
+      if (backdrop) backdrop.classList.remove('open');
+    }
+
+    if (menuBtn && panel) {
+      menuBtn.addEventListener('click', function () {
+        var isOpen = panel.classList.contains('open');
+        if (isOpen) {
+          closeMenu();
+          return;
+        }
+
+        menuBtn.classList.add('active');
+        menuBtn.setAttribute('aria-expanded', 'true');
+        panel.classList.add('open');
+        if (backdrop) backdrop.classList.add('open');
+      });
+    }
+
+    if (backdrop) {
+      backdrop.addEventListener('click', closeMenu);
+    }
+
+    document.querySelectorAll('#mobileNavPanel a').forEach(function (link) {
+      link.addEventListener('click', closeMenu);
+    });
+  })();
+</script>
+
+<!-- ══════════════════ FLOATING BUTTONS ══════════════════ -->
+<div class="float-ctas" id="floatCtas">
+  <a href="https://t.me/leechanauto" class="float-btn tg float-item" title="Telegram">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M21.198 2.433a2.242 2.242 0 00-1.022.215l-16.5 6.925a2.25 2.25 0 00.153 4.218l3.982 1.23 2.005 6.019a1 1 0 001.782.258l2.695-3.417 4.203 3.102a2.25 2.25 0 003.516-1.418l2.25-14.625a2.25 2.25 0 00-4.064-1.507z"/></svg>
+  </a>
+  <a href="https://wa.me/48784890644" class="float-btn wa float-item" title="WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.118 1.531 5.845L.057 23.535a.75.75 0 00.916.916l5.69-1.474A11.953 11.953 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.713 9.713 0 01-4.943-1.354l-.355-.212-3.676.953.974-3.565-.232-.369A9.713 9.713 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+  </a>
+  <button class="float-toggle" id="floatToggle" aria-label="Зв'язатися">
+    <span class="icon-chat"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></span>
+    <span class="icon-close"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+  </button>
+</div>
+
+<script defer src="js/components/auth-modal.js"></script>
+<script defer src="js/components/site-chrome.js"></script>
+  <script defer src="js/modules/i18n.js"></script>
+  <script defer src="js/core/utils.js"></script>
+  <script defer src="js/core/initApp.js"></script>
+
+<script>
+  (function(){var f=document.getElementById('floatCtas'),t=document.getElementById('floatToggle');if(!f||!t)return;t.addEventListener('click',function(){f.classList.toggle('open');});document.addEventListener('click',function(e){if(f&&!f.contains(e.target))f.classList.remove('open');});})();
+</script>
+
+<script>
+(function() {
+  function initMarquee() {
+    var wrap = document.getElementById('partnersMarquee');
+    var track = document.getElementById('partnersTrack');
+    if (!wrap || !track) return;
+
+    var half = track.scrollWidth / 2;
+    var pos = 0;
+    var autoSpeed = 0.7;
+    var autoActive = true;
+    var vel = 0;
+    var autoTimer;
+    var isDragging = false;
+    var dragStartX = 0;
+    var dragStartPos = 0;
+    var lastTouchX = 0;
+    var touchStartPos = 0;
+
+    function norm(p) {
+      p = p % half;
+      if (p > 0) p -= half;
+      return p;
+    }
+
+    function tick() {
+      if (autoActive) {
+        pos -= autoSpeed;
+      } else {
+        pos += vel;
+        vel *= 0.92;
+        if (Math.abs(vel) < 0.05) vel = 0;
+      }
+      pos = norm(pos);
+      track.style.transform = 'translateX(' + pos + 'px)';
+      requestAnimationFrame(tick);
+    }
+    tick();
+
+    function pauseAuto() {
+      autoActive = false;
+      clearTimeout(autoTimer);
+    }
+    function resumeAuto(delay) {
+      clearTimeout(autoTimer);
+      autoTimer = setTimeout(function() { vel = 0; autoActive = true; }, delay || 2000);
+    }
+
+    /* колесо миші — тільки всередині блоку */
+    wrap.addEventListener('wheel', function(e) {
+      e.preventDefault();
+      pauseAuto();
+      vel = -e.deltaY * 0.25;
+      pos = norm(pos - e.deltaY * 0.5);
+      resumeAuto(2000);
+    }, { passive: false });
+
+    /* drag мишею */
+    wrap.addEventListener('mousedown', function(e) {
+      isDragging = true;
+      dragStartX = e.clientX;
+      dragStartPos = pos;
+      vel = 0;
+      pauseAuto();
+    });
+    document.addEventListener('mousemove', function(e) {
+      if (!isDragging) return;
+      pos = norm(dragStartPos + (e.clientX - dragStartX));
+    });
+    document.addEventListener('mouseup', function() {
+      if (!isDragging) return;
+      isDragging = false;
+      resumeAuto(2500);
+    });
+
+    /* свайп */
+    wrap.addEventListener('touchstart', function(e) {
+      lastTouchX = e.touches[0].clientX;
+      touchStartPos = pos;
+      vel = 0;
+      pauseAuto();
+    }, { passive: true });
+    wrap.addEventListener('touchmove', function(e) {
+      var x = e.touches[0].clientX;
+      vel = x - lastTouchX;
+      pos = norm(pos + vel);
+      lastTouchX = x;
+    }, { passive: true });
+    wrap.addEventListener('touchend', function() {
+      resumeAuto(1500);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMarquee);
+  } else {
+    initMarquee();
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+/* ═══════════════════════════════════════════════════
+   Car Auctions — Base Reset & CSS Variables
+   ═══════════════════════════════════════════════════ */
+/* ─── RESET & BASE ─────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', system-ui, sans-serif; background: #fff; color: #1a2236; overflow-x: hidden; line-height: 1.6; }
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+section { scroll-margin-top: 80px; }
+
+
+/* ─── CSS VARIABLES ─────────────────────────────────────────────── */
+:root {
+  --orange:  #FF5C00;
+  --orange2: #FF7A2F;
+  --navy:    #1B2A4A;
+  --navy2:   #22345c;
+  --light:   #F5F6FA;
+  --border:  #E4E7EF;
+  --text:    #1a2236;
+  --text2:   #5a6478;
+  --text3:   #9aa3b8;
+}
+
+

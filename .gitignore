@@ -1,0 +1,16 @@
+# macOS
+.DS_Store
+__MACOSX/
+
+# Dev / local server
+local_server.py
+*.pyc
+__pycache__/
+
+# Node
+node_modules/
+package-lock.json
+
+# Editor
+.vscode/
+.idea/

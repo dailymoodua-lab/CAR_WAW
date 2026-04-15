@@ -1,0 +1,375 @@
+/* ═══════════════════════════════════════════════════════
+   Car Auctions — Card Component
+   Общие стили карточек для catalog и catalog-available.
+   Данный файл — единственный источник правды для .car-card.
+
+   Изменения здесь применяются на обе страницы каталога.
+   ═══════════════════════════════════════════════════════ */
+
+/* ─── CSS-алиасы (нужны для переменных в рамках компонента) ── */
+:root {
+  --accent:        var(--orange);
+  --accent-dim:    rgba(255,92,0,.08);
+  --bg:            #FFFFFF;
+  --bg-2:          #FFFFFF;
+  --bg-3:          #F8F9FC;
+  --bg-card:       #FFFFFF;
+  --bg-card-hover: #FFF8F5;
+  --border-strong: #cdd1de;
+  --text-2:        var(--text2);
+  --text-3:        var(--text3);
+  --shadow-card:   0 1px 4px rgba(0,0,0,.04);
+  --radius-card:   12px;
+  --radius-sm:     8px;
+  --radius-btn:    50px;
+  --transition:    0.22s cubic-bezier(0.25,0.46,0.45,0.94);
+  --font:          'Inter', system-ui, sans-serif;
+}
+
+    .car-list.layout-grid .car-card {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto 1fr auto;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin: 0;
+    }
+    .car-list.layout-grid .card-photo {
+      width: 100%; aspect-ratio: 4/3; min-height: unset; border-radius: 10px 10px 0 0;
+    }
+    .car-list.layout-grid .card-body { padding: 10px 12px; gap: 6px; }
+    .car-list.layout-grid .card-vin    { display: none; }
+    .car-list.layout-grid .card-details { display: none; }
+    .car-list.layout-grid .card-price {
+      width: 100%; border-left: none; border-top: 1px solid var(--border);
+      flex-direction: column !important;
+      align-items: stretch !important;
+      justify-content: space-between !important;
+      height: auto !important;
+      gap: 6px !important;
+      padding: 10px 12px;
+      background: none;
+    }
+    .car-list.layout-grid .price-range  { display: none; }
+    .car-list.layout-grid .price-divider { display: none; }
+    .car-list.layout-grid .auction-end  { display: none; }
+    .car-list.layout-grid .time-left  { display: none; }
+    .car-list.layout-grid .bid-note   { display: none; }
+    .car-list.layout-grid .current-bid-val { font-size: 17px; }
+    .car-list.layout-grid .btn-auction,
+    .car-list.layout-grid .btn-watch,
+    .car-list.layout-grid .btn-pending,
+    .car-list.layout-grid .btn-finished {
+      width: 100%; padding: 8px 12px; font-size: 12px; flex-shrink: 0;
+    }
+
+    /* km-spec — visible only in grid */
+    .km-spec { display: none; }
+    .car-list.layout-grid .km-spec { display: inline-flex; }
+
+    /* ── COMPACT ROW CARD ───────────────────────────── */
+    .car-card {
+      background: #FFFFFF;
+      border-bottom: 1px solid #F0F0F0;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 306px 1fr auto;
+      transition: background var(--transition);
+      cursor: pointer;
+      position: relative;
+      min-height: 200px;
+    }
+    .car-card:last-child { border-bottom: none; }
+    .car-card:hover { background: var(--bg-card-hover); }
+
+    /* Badge NEW */
+    .card-badge-new {
+      position: absolute; top: 8px; left: 8px;
+      background: #22c55e; color: #fff;
+      font-size: 9px; font-weight: 800; letter-spacing: 0.07em;
+      padding: 2px 6px; border-radius: 3px;
+      z-index: 2;
+    }
+
+    /* Photo — compact, square-ish */
+    .card-photo {
+      width: 306px;
+      aspect-ratio: unset;
+      min-height: 200px;
+      align-self: stretch;
+      position: relative; overflow: hidden; flex-shrink: 0;
+    }
+    .card-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .car-card:hover .card-photo .slide-img { transform: scale(1.04); }
+    .photo-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, transparent 55%, rgba(0,0,0,0.18));
+      pointer-events: none;
+    }
+
+    /* Photo slider */
+    .slide-img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
+      display: block;
+      transition: opacity 0.22s ease, transform 0.4s ease;
+    }
+    .slide-img.fading { opacity: 0; }
+
+    /* Slide nav buttons — hidden by default on compact cards */
+    .slide-btn {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 24px; height: 24px;
+      background: rgba(0,0,0,0.5);
+      border: none;
+      border-radius: 50%;
+      color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0;
+      transition: opacity 0.18s;
+      z-index: 4; cursor: pointer;
+      flex-shrink: 0;
+    }
+    .slide-btn:hover { background: rgba(0,0,0,0.72); }
+    .slide-prev { left: 4px; }
+    .slide-next { right: 4px; }
+    .card-photo:hover .slide-btn { opacity: 1; }
+
+    .slide-counter {
+      position: absolute; bottom: 5px; left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.55);
+      color: #fff;
+      font-size: 9px; font-weight: 700;
+      padding: 2px 7px; border-radius: 50px;
+      z-index: 4;
+      opacity: 0;
+      transition: opacity 0.18s;
+      white-space: nowrap;
+    }
+    .card-photo:hover .slide-counter { opacity: 1; }
+
+    .slide-dots {
+      position: absolute; bottom: 6px; left: 0; right: 0;
+      display: flex; justify-content: center; gap: 3px;
+      z-index: 4; opacity: 0; transition: opacity 0.18s;
+    }
+    .card-photo:hover .slide-dots { opacity: 1; }
+    .slide-dot {
+      width: 4px; height: 4px; border-radius: 50%;
+      background: rgba(255,255,255,0.45);
+      transition: background 0.18s;
+      cursor: pointer; flex-shrink: 0;
+    }
+    .slide-dot.active { background: var(--accent); }
+
+    @media (max-width: 640px) {
+      .slide-btn { opacity: 0.7; width: 22px; height: 22px; }
+      .slide-counter { opacity: 0.85; }
+    }
+
+    /* Card body */
+    .card-body {
+      padding: 10px 14px;
+      display: flex; flex-direction: column; gap: 7px;
+      min-width: 0;
+      justify-content: center;
+    }
+
+    .card-top { display: flex; align-items: flex-start; gap: 7px; }
+    .card-title-block { flex: 1; min-width: 0; }
+    .card-title {
+      font-size: 14px; font-weight: 700;
+      color: var(--text);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      transition: color var(--transition);
+    }
+    .car-card:hover .card-title { color: var(--orange); }
+    .card-vin {
+      font-size: 10px; color: var(--text-3); font-family: monospace;
+      margin-top: 2px; display: flex; align-items: center; gap: 5px;
+    }
+    .card-vin span { color: var(--text-2); }
+    .auction-badge {
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 10px; font-weight: 800; letter-spacing: 0.05em;
+      flex-shrink: 0;
+    }
+    .badge-copart { background: rgba(26,86,219,0.1); color: #1a56db; border: 1px solid rgba(26,86,219,0.2); }
+    .badge-iaai   { background: rgba(185,28,28,0.1);  color: #b91c1c; border: 1px solid rgba(185,28,28,0.2); }
+    .fav-btn {
+      width: 26px; height: 26px;
+      border-radius: 50%; background: transparent;
+      border: 1px solid var(--border);
+      display: grid; place-items: center;
+      color: var(--text-3); flex-shrink: 0;
+      transition: all var(--transition);
+    }
+    .fav-btn:hover { color: #ef4444; border-color: rgba(239,68,68,0.3); background: rgba(239,68,68,0.07); }
+    .fav-btn.active { color: #ef4444; background: rgba(239,68,68,0.08); border-color: rgba(239,68,68,0.25); }
+
+    /* Specs row — small badges */
+    .card-specs {
+      display: flex; align-items: center; gap: 5px;
+      flex-wrap: wrap;
+    }
+    .spec-tag {
+      display: inline-flex; align-items: center; gap: 3px;
+      padding: 2px 8px;
+      background: var(--bg-3);
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      font-size: 10px; font-weight: 600; color: var(--text-2);
+    }
+    .spec-tag svg { color: var(--text-3); }
+
+    /* Card details — compact 2×3 grid */
+    .card-details {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 5px 8px;
+    }
+    .detail-item { display: flex; flex-direction: column; gap: 1px; }
+    .detail-label { font-size: 9px; font-weight: 600; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.06em; }
+    .detail-value { font-size: 11px; font-weight: 600; color: var(--text-2); display: flex; align-items: center; gap: 3px; }
+    .detail-value.dash { color: var(--text-3); }
+    .status-dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
+    .dot-ok   { background: #22c55e; }
+    .dot-warn { background: #f59e0b; }
+    .dot-err  { background: #ef4444; }
+    .doc-ok { color: #22c55e; }
+    .damage-text { color: var(--text-2); }
+    .status-onward  { color: #22c55e; font-weight: 700; }
+    .status-sold    { color: #f59e0b; }
+    .status-process { color: #3b82f6; }
+
+    /* Price panel */
+    .card-price {
+      width: 170px; flex-shrink: 0;
+      padding: 12px 14px;
+      border-left: 1px solid #F0F0F0;
+      display: flex; flex-direction: column;
+      justify-content: space-between; gap: 6px;
+      background: #FAFAFA;
+    }
+    .price-range { display: flex; flex-direction: column; gap: 1px; }
+    .price-range-label { font-size: 9px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.06em; display: flex; align-items: center; gap: 3px; }
+    .price-range-label svg { color: var(--accent); }
+    .price-range-val { font-size: 11px; font-weight: 600; color: var(--text-2); }
+    .price-divider { height: 1px; background: #EFEFEF; }
+    .current-bid-label { font-size: 9px; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.06em; }
+    .current-bid-val {
+      font-size: 20px; font-weight: 800;
+      color: var(--text); letter-spacing: -0.02em;
+    }
+    .current-bid-val.final { color: var(--accent); }
+    .bid-note { font-size: 9px; color: var(--text-3); font-weight: 500; }
+    .auction-end { font-size: 10px; color: var(--text-3); display: flex; align-items: center; gap: 3px; }
+    .auction-end strong { color: var(--text-2); }
+    .time-left { font-size: 10px; font-weight: 700; color: #f59e0b; display: flex; align-items: center; gap: 3px; }
+
+    /* CTA buttons */
+    .btn-auction {
+      width: 100%;
+      padding: 8px 12px;
+      background: var(--orange);
+      color: #fff;
+      font-size: 12px; font-weight: 700;
+      border-radius: var(--radius-sm);
+      transition: background var(--transition);
+      text-align: center;
+      border: none;
+    }
+    .btn-auction:hover { background: var(--orange2); }
+    .btn-watch {
+      width: 100%;
+      padding: 7px 12px;
+      background: #FFFFFF;
+      color: var(--text-2);
+      font-size: 11px; font-weight: 600;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      transition: all var(--transition);
+      text-align: center;
+    }
+    .btn-watch:hover { background: var(--bg-3); color: var(--text); border-color: var(--border-strong); }
+    .btn-pending {
+      width: 100%;
+      padding: 7px 12px;
+      background: transparent;
+      color: var(--text-3);
+      font-size: 11px; font-weight: 600;
+      border-radius: var(--radius-sm);
+      border: 1px dashed var(--border);
+      transition: all var(--transition);
+      text-align: center;
+    }
+    .btn-pending:hover { border-style: solid; color: var(--text-2); }
+    .btn-finished {
+      width: 100%;
+      padding: 7px 12px;
+      background: rgba(245,158,11,0.07);
+      color: #f59e0b;
+      font-size: 11px; font-weight: 700;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(245,158,11,0.2);
+    }
+
+    /* Load more */
+    .load-more { display: flex; justify-content: center; padding: 16px 0 28px; }
+    .btn-load {
+      padding: 11px 36px;
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-btn);
+      font-size: 13px; font-weight: 700; color: var(--accent);
+      transition: all var(--transition);
+      display: flex; align-items: center; gap: 7px;
+    }
+    .btn-load:hover { background: var(--accent-dim); border-color: rgba(255,92,0,0.25); }
+
+    /* ─── ANIMATIONS ────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .car-card { animation: fadeUp 0.35s ease both; }
+    .car-card:nth-child(1) { animation-delay: 0.04s; }
+    .car-card:nth-child(2) { animation-delay: 0.08s; }
+    .car-card:nth-child(3) { animation-delay: 0.12s; }
+    .car-card:nth-child(4) { animation-delay: 0.16s; }
+    .car-card:nth-child(5) { animation-delay: 0.20s; }
+    .car-card:nth-child(6) { animation-delay: 0.24s; }
+
+/* ─── RESPONSIVE — карточки ─────────────────────────── */
+@media (max-width: 1200px) {
+  .car-card { grid-template-columns: 200px 1fr auto; }
+  .card-photo { width: 200px; min-height: 140px; }
+  .card-price { width: 155px; }
+}
+
+@media (max-width: 900px) {
+  .card-price { width: 140px; }
+  .card-details { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .car-card {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+  }
+  .card-photo { width: 100%; aspect-ratio: 4 / 3; min-height: unset; }
+  .card-price {
+    width: 100%; border-left: none;
+    border-top: 1px solid #F0F0F0;
+    flex-direction: row; flex-wrap: wrap; gap: 8px;
+    align-items: center; background: #FAFAFA;
+  }
+  .price-divider { display: none; }
+  .card-details { grid-template-columns: repeat(2, 1fr); }
+}

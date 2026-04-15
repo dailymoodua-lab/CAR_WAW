@@ -1,0 +1,451 @@
+/* ═══════════════════════════════════════════════════
+   MOBILE BOTTOM NAV + CHAT  — leechan AUTO
+   Magic sliding indicator animation
+   Only visible on mobile (≤ 900px)
+   ═══════════════════════════════════════════════════ */
+
+@media (min-width: 901px) {
+  .m-nav, .chat-overlay { display: none !important; }
+}
+
+/* Mobile bottom navigation is disabled across the project. */
+@media (max-width: 900px) {
+  body { padding-bottom: 0 !important; }
+}
+
+.m-nav,
+.chat-overlay {
+  display: none !important;
+}
+
+
+/* ═══════════════════════════════════════════════════
+   BOTTOM NAVIGATION BAR
+   ═══════════════════════════════════════════════════ */
+.m-nav {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 190;
+  overflow: visible; /* allow indicator to float above */
+
+  /* Safari-style frosted glass — контент просвічує, але темніший на ~12% */
+  background: rgba(14, 14, 22, 0.46);
+  backdrop-filter: blur(58px) saturate(2.6) brightness(0.80);
+  -webkit-backdrop-filter: blur(58px) saturate(2.6) brightness(0.80);
+
+  /* Тонка верхня лінія як у Safari */
+  border-top: 0.5px solid rgba(255,255,255,0.16);
+  border-radius: 22px 22px 0 0;
+
+  /* Ніякої щільної тіні — лише ледве помітний ореол */
+  box-shadow:
+    0 -1px 0 rgba(255,255,255,0.08) inset,
+    0 -8px 32px rgba(0,0,0,0.18);
+}
+
+/* Inner track — contains indicator + buttons */
+.m-nav-track {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 60px;
+  padding: 0 6px;
+  position: relative;
+}
+
+/* Safe area spacer */
+.m-nav-safe {
+  height: env(safe-area-inset-bottom, 0px);
+  background: inherit;
+}
+
+/* ── Sliding glass indicator (Safari style) ──────── */
+.m-nav-indicator {
+  position: absolute;
+  top: 0; left: 0;
+  width: 50px; height: 50px;
+  border-radius: 17px;
+
+  /* Safari frosted glass — тонований жовтим, але прозорий */
+  background: rgba(255, 219, 22, 0.18);
+  backdrop-filter: blur(28px) saturate(2.2) brightness(1.18);
+  -webkit-backdrop-filter: blur(28px) saturate(2.2) brightness(1.18);
+
+  /* Скляна обводка — верхній блік яскравіший */
+  border: 1px solid rgba(255,255,255,0.22);
+  border-top-color: rgba(255,255,255,0.38);
+
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.28) inset,   /* верхній блік */
+    0 0 0 1px rgba(255,219,22,0.18) inset,   /* ледь жовта обводка */
+    0 6px 20px rgba(0,0,0,0.22),             /* тінь */
+    0 2px 8px  rgba(255,219,22,0.14);        /* ледь жовте свічення */
+
+  transform: translateX(0px) translateY(-16px);
+  transition: transform 0.42s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform;
+}
+
+/* ── Nav buttons ─────────────────────────────────── */
+.m-nav-btn {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  color: rgba(255,255,255,0.38);
+  -webkit-tap-highlight-color: transparent;
+  border-radius: 12px;
+  transition: color 0.25s ease;
+  user-select: none;
+}
+
+.m-nav-btn svg {
+  width: 22px; height: 22px;
+  flex-shrink: 0;
+  transition:
+    transform 0.42s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.25s ease;
+  will-change: transform;
+}
+
+.m-nav-btn span {
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  font-family: inherit;
+  transition:
+    opacity 0.28s ease,
+    transform 0.35s ease;
+}
+
+/* ── ACTIVE state — icon floats up into glass indicator ── */
+.m-nav-btn.active {
+  color: #ffdb16;
+}
+
+.m-nav-btn.active svg {
+  transform: translateY(-18px) scale(1.05);
+  color: #ffdb16;
+  filter: drop-shadow(0 0 6px rgba(255,219,22,0.55));
+}
+
+.m-nav-btn.active span {
+  opacity: 0;
+  transform: translateY(6px);
+  pointer-events: none;
+}
+
+/* Tap ripple */
+.m-nav-btn:not(.active):active svg {
+  transform: scale(0.85);
+}
+
+/* ── LIGHT THEME ─────────────────────────────────── */
+[data-theme="light"] .m-nav {
+  /* Safari light mode — майже білий, але контент просвічує */
+  background: rgba(240, 240, 248, 0.52);
+  backdrop-filter: blur(58px) saturate(2.2) brightness(1.06);
+  -webkit-backdrop-filter: blur(58px) saturate(2.2) brightness(1.06);
+  border-top: 0.5px solid rgba(255,255,255,0.80);
+  box-shadow:
+    0 -1px 0 rgba(255,255,255,0.85) inset,
+    0 -8px 24px rgba(0,0,0,0.06);
+}
+
+[data-theme="light"] .m-nav-btn {
+  color: rgba(0,0,0,0.30);
+}
+
+[data-theme="light"] .m-nav-btn.active {
+  color: #b8860b; /* темно-жовтий — читається на світлому склі */
+}
+
+[data-theme="light"] .m-nav-indicator {
+  background: rgba(255, 200, 0, 0.12);
+  border-color: rgba(0,0,0,0.10);
+  border-top-color: rgba(255,255,255,0.75);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.80) inset,
+    0 6px 20px rgba(0,0,0,0.08),
+    0 2px 8px rgba(255,180,0,0.10);
+}
+
+[data-theme="light"] .m-nav-btn.active svg {
+  filter: drop-shadow(0 0 5px rgba(180,140,0,0.35));
+}
+
+
+/* ═══════════════════════════════════════════════════
+   CHAT MODAL — Glass Bottom Sheet
+   ═══════════════════════════════════════════════════ */
+
+.chat-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  background: rgba(4, 4, 12, 0.58);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.chat-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* ── Sheet ────────────────────────────────────────── */
+.chat-sheet {
+  position: fixed; /* fixed — не absolute, щоб не залежати від overlay */
+  bottom: 0; left: 0; right: 0;
+  /* Висота фіксована, але JS може зменшити через max-height */
+  height: min(74svh, 680px);
+
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  background: rgba(10, 10, 22, 0.82);
+  backdrop-filter: blur(56px) saturate(1.9) brightness(1.12);
+  -webkit-backdrop-filter: blur(56px) saturate(1.9) brightness(1.12);
+
+  border-radius: 24px 24px 0 0;
+  border-top: 1px solid rgba(255,255,255,0.13);
+  border-left: 1px solid rgba(255,255,255,0.07);
+  border-right: 1px solid rgba(255,255,255,0.07);
+
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.06) inset,
+    0 2px 0 rgba(255,255,255,0.10) inset,
+    0 -40px 100px rgba(0,0,0,0.52);
+
+  /* Анімація відкриття — через transform */
+  transform: translateY(100%);
+  /* bottom анімується при появі клавіатури */
+  transition:
+    transform 0.44s cubic-bezier(0.32, 0.72, 0, 1),
+    bottom 0.18s ease,
+    max-height 0.18s ease;
+
+  /* z-index вище overlay */
+  z-index: 301;
+}
+
+.chat-overlay.open .chat-sheet {
+  transform: translateY(0);
+}
+
+/* Handle */
+.chat-handle {
+  width: 38px; height: 4px;
+  background: rgba(255,255,255,0.16);
+  border-radius: 2px;
+  margin: 12px auto 0;
+  flex-shrink: 0;
+}
+
+/* ── Chat Header ──────────────────────────────────── */
+.chat-hdr {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  flex-shrink: 0;
+}
+
+.chat-avatar {
+  width: 42px; height: 42px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #ffdb16 0%, #ffc800 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 18px rgba(255,219,22,0.38);
+}
+
+.chat-hdr-info { flex: 1; }
+
+.chat-hdr-name {
+  font-size: 15px; font-weight: 700;
+  color: #fff; line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.chat-hdr-status {
+  font-size: 11px;
+  color: rgba(255,255,255,0.38);
+  display: flex; align-items: center; gap: 5px;
+  margin-top: 2px;
+}
+
+.chat-hdr-status::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: #22c55e; border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 0 6px rgba(34,197,94,0.6);
+}
+
+.chat-close-btn {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.10);
+  color: rgba(255,255,255,0.50);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+.chat-close-btn:active { background: rgba(255,255,255,0.14); color: #fff; }
+
+/* ── Messages ─────────────────────────────────────── */
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex; flex-direction: column;
+  gap: 10px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+.chat-messages::-webkit-scrollbar { display: none; }
+
+/* ── Bubble ───────────────────────────────────────── */
+.chat-bubble {
+  max-width: 80%;
+  padding: 10px 14px 8px;
+  border-radius: 18px;
+  font-size: 14px;
+  line-height: 1.55;
+  word-break: break-word;
+  animation: bubbleIn 0.26s cubic-bezier(0.34,1.56,0.64,1) both;
+}
+
+@keyframes bubbleIn {
+  from { opacity: 0; transform: scale(0.82) translateY(10px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.chat-bubble.user {
+  align-self: flex-end;
+  background: linear-gradient(135deg, #ffe033, #ffdb16, #f5c800);
+  color: #111; font-weight: 500;
+  border-bottom-right-radius: 4px;
+  box-shadow: 0 3px 20px rgba(255,219,22,0.28);
+}
+
+.chat-bubble.bot {
+  align-self: flex-start;
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.88);
+  border-bottom-left-radius: 4px;
+  border: 1px solid rgba(255,255,255,0.10);
+}
+
+.chat-bubble-time {
+  font-size: 10px; margin-top: 3px;
+  opacity: 0.5; text-align: right; line-height: 1;
+}
+
+/* ── Typing indicator ────────────────────────────── */
+.chat-typing {
+  align-self: flex-start;
+  padding: 12px 16px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 18px; border-bottom-left-radius: 4px;
+  display: flex; gap: 5px; align-items: center;
+  animation: bubbleIn 0.26s cubic-bezier(0.34,1.56,0.64,1) both;
+}
+
+.chat-typing span {
+  width: 6px; height: 6px;
+  background: rgba(255,255,255,0.45); border-radius: 50%;
+  animation: typingPulse 1.3s infinite ease-in-out;
+}
+.chat-typing span:nth-child(2) { animation-delay: 0.16s; }
+.chat-typing span:nth-child(3) { animation-delay: 0.32s; }
+
+@keyframes typingPulse {
+  0%,60%,100% { transform: translateY(0);   opacity: 0.4; }
+  30%          { transform: translateY(-5px); opacity: 1; }
+}
+
+/* ── Input bar ────────────────────────────────────── */
+.chat-input-bar {
+  display: flex; align-items: center; gap: 10px;
+  padding: 12px 16px;
+  padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+  border-top: 1px solid rgba(255,255,255,0.07);
+  flex-shrink: 0;
+  background: rgba(6, 6, 16, 0.5);
+}
+
+.chat-input {
+  flex: 1;
+  padding: 12px 16px;
+  border-radius: 24px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: #fff; font-size: 15px; font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+  -webkit-appearance: none;
+  caret-color: #ffdb16;
+}
+.chat-input::placeholder { color: rgba(255,255,255,0.28); }
+.chat-input:focus {
+  background: rgba(255,255,255,0.11);
+  border-color: rgba(255,219,22,0.45);
+  box-shadow: 0 0 0 3px rgba(255,219,22,0.08);
+}
+
+.chat-send-btn {
+  width: 42px; height: 42px; border-radius: 50%;
+  background: linear-gradient(135deg, #ffdb16, #ffc800);
+  border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; color: #111;
+  box-shadow: 0 3px 14px rgba(255,219,22,0.40);
+  transition: transform 0.15s, box-shadow 0.15s;
+  -webkit-tap-highlight-color: transparent;
+}
+.chat-send-btn:active {
+  transform: scale(0.90);
+  box-shadow: 0 1px 6px rgba(255,219,22,0.28);
+}
+
+/* ── LIGHT THEME chat ─────────────────────────────── */
+[data-theme="light"] .chat-sheet {
+  background: rgba(246, 246, 252, 0.94);
+  border-top-color: rgba(0,0,0,0.09);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.9) inset,
+    0 -40px 100px rgba(0,0,0,0.08);
+}
+[data-theme="light"] .chat-handle { background: rgba(0,0,0,0.14); }
+[data-theme="light"] .chat-hdr { border-bottom-color: rgba(0,0,0,0.07); }
+[data-theme="light"] .chat-hdr-name { color: #0a0a0b; }
+[data-theme="light"] .chat-hdr-status { color: rgba(0,0,0,0.38); }
+[data-theme="light"] .chat-close-btn { background: rgba(0,0,0,0.06); border-color: rgba(0,0,0,0.09); color: rgba(0,0,0,0.45); }
+[data-theme="light"] .chat-bubble.bot { background: rgba(0,0,0,0.05); color: #0a0a0b; border-color: rgba(0,0,0,0.08); }
+[data-theme="light"] .chat-typing { background: rgba(0,0,0,0.05); border-color: rgba(0,0,0,0.08); }
+[data-theme="light"] .chat-typing span { background: rgba(0,0,0,0.3); }
+[data-theme="light"] .chat-input-bar { background: rgba(240,240,248,0.8); border-top-color: rgba(0,0,0,0.07); }
+[data-theme="light"] .chat-input { background: rgba(0,0,0,0.05); border-color: rgba(0,0,0,0.12); color: #0a0a0b; }
+[data-theme="light"] .chat-input::placeholder { color: rgba(0,0,0,0.32); }

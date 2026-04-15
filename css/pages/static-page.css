@@ -1,0 +1,123 @@
+.static-wrap {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 28px 24px 56px;
+}
+
+.static-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text3);
+  margin-bottom: 16px;
+}
+
+.static-breadcrumb a {
+  color: var(--text2);
+}
+
+.static-hero {
+  background: linear-gradient(135deg, #f9fbff 0%, #f2f5fb 100%);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 28px;
+  margin-bottom: 20px;
+}
+
+.static-hero h1 {
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.1;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+.static-hero p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text2);
+  max-width: 860px;
+}
+
+.static-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.static-card {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: #fff;
+  padding: 18px;
+}
+
+.static-card h2 {
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+
+.static-card p,
+.static-card li {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text2);
+}
+
+.static-card ul {
+  margin: 8px 0 0 18px;
+}
+
+.static-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.static-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.static-btn:hover {
+  border-color: var(--orange);
+  color: var(--orange);
+}
+
+.static-btn--accent {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: #fff;
+}
+
+.static-btn--accent:hover {
+  background: var(--orange2);
+  border-color: var(--orange2);
+  color: #fff;
+}
+
+@media (max-width: 900px) {
+  .static-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .static-wrap {
+    padding: 22px 16px 44px;
+  }
+
+  .static-hero {
+    padding: 20px;
+  }
+}
